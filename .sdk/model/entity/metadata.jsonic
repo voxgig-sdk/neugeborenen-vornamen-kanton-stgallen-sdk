@@ -1,0 +1,56 @@
+# Entity: metadata
+
+main: kit: entity: metadata: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "description"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "label"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "type"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "metadata"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          method: "GET"
+          orig: "/explore/v2.1/catalog/datasets/vornamen-der-neugeborenen-kanton-stgallen-seit-1987"
+          parts: [
+            "explore"
+            "v2.1"
+            "catalog"
+            "datasets"
+            "vornamen-der-neugeborenen-kanton-stgallen-seit-1987"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

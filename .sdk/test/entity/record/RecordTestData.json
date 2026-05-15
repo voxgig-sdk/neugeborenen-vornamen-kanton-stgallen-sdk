@@ -1,0 +1,41 @@
+{
+  "existing": {
+    "record": {
+      "RECORD00": {
+        "anzahl": "s3c",
+        "geschlecht": "s3d",
+        "geschlecht_label": "s3e",
+        "id": "RECORD00",
+        "jahr": "s40",
+        "vorname": "s41"
+      },
+      "RECORD01": {
+        "anzahl": "s78",
+        "geschlecht": "s79",
+        "geschlecht_label": "s7a",
+        "id": "RECORD01",
+        "jahr": "s7c",
+        "vorname": "s7d"
+      },
+      "RECORD02": {
+        "anzahl": "sb4",
+        "geschlecht": "sb5",
+        "geschlecht_label": "sb6",
+        "id": "RECORD02",
+        "jahr": "sb8",
+        "vorname": "sb9"
+      }
+    }
+  },
+  "new": {
+    "record": {
+      "record_ref01": {
+        "anzahl": "sf0",
+        "geschlecht": "sf1",
+        "geschlecht_label": "sf2",
+        "jahr": "sf4",
+        "vorname": "sf5"
+      }
+    }
+  }
+}

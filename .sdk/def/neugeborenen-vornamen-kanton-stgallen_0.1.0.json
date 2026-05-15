@@ -1,0 +1,327 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Neugeborenen Vornamen Kanton St.Gallen",
+    "description": "Provides dataset of newborn first names in the Canton of St.Gallen since 1987, based on official registry data from the Federal Office for Civil Status. Names with less than five occurrences per year are grouped under 'other names' for privacy reasons. The dataset contains first names of newborns in Canton St.Gallen (mother's place of residence). For multiple registered first names, the first name listed in the official Infostar register of the Federal Office for Civil Status (EAZW) is evaluated. Hyphenated names are counted as a single name (e.g. Anne-Sophie), similarly spelled names (e.g. Jannik and Jannick) as two different names. Accents (e.g. ï or é) are not considered.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Canton St.Gallen Open Data Portal",
+      "url": "https://daten.sg.ch"
+    },
+    "termsOfService": "https://daten.sg.ch"
+  },
+  "servers": [
+    {
+      "url": "https://daten.sg.ch/api",
+      "description": "St.Gallen Open Data API"
+    }
+  ],
+  "paths": {
+    "/explore/v2.1/catalog/datasets/vornamen-der-neugeborenen-kanton-stgallen-seit-1987/records": {
+      "get": {
+        "summary": "Get records from the newborn names dataset",
+        "description": "Retrieves records of newborn first names in Canton St.Gallen since 1987. Supports filtering, pagination, and field selection.",
+        "operationId": "getRecords",
+        "tags": [
+          "Records"
+        ],
+        "parameters": [
+          {
+            "name": "select",
+            "in": "query",
+            "description": "Fields to include in the response (comma-separated)",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "vorname,geschlecht,jahr,anzahl"
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "description": "Filter query using ODSQL syntax",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "jahr >= 2000"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Maximum number of records to return",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 10,
+              "minimum": 1,
+              "maximum": 100
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Number of records to skip for pagination",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0,
+              "minimum": 0
+            }
+          },
+          {
+            "name": "refine.geschlecht",
+            "in": "query",
+            "description": "Filter by gender",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "m",
+                "w"
+              ]
+            }
+          },
+          {
+            "name": "refine.vorname",
+            "in": "query",
+            "description": "Filter by first name",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "refine.jahr",
+            "in": "query",
+            "description": "Filter by year",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1987
+            }
+          },
+          {
+            "name": "order_by",
+            "in": "query",
+            "description": "Field to sort by (prefix with - for descending order)",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "-anzahl"
+          },
+          {
+            "name": "group_by",
+            "in": "query",
+            "description": "Fields to group by (comma-separated)",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "timezone",
+            "in": "query",
+            "description": "Timezone for date/time fields",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "UTC"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "total_count": {
+                      "type": "integer",
+                      "description": "Total number of records matching the query"
+                    },
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "Unique record identifier"
+                          },
+                          "jahr": {
+                            "type": "integer",
+                            "description": "Year of birth"
+                          },
+                          "geschlecht": {
+                            "type": "string",
+                            "description": "Gender code",
+                            "enum": [
+                              "m",
+                              "w"
+                            ]
+                          },
+                          "geschlecht_label": {
+                            "type": "string",
+                            "description": "Gender label (male/female)"
+                          },
+                          "vorname": {
+                            "type": "string",
+                            "description": "First name"
+                          },
+                          "anzahl": {
+                            "type": "integer",
+                            "description": "Number of occurrences"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid parameters"
+          },
+          "404": {
+            "description": "Dataset not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/explore/v2.1/catalog/datasets/vornamen-der-neugeborenen-kanton-stgallen-seit-1987": {
+      "get": {
+        "summary": "Get dataset metadata",
+        "description": "Retrieves metadata information about the newborn names dataset including schema, processing dates, and download statistics.",
+        "operationId": "getDatasetMetadata",
+        "tags": [
+          "Metadata"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "dataset_id": {
+                      "type": "string",
+                      "description": "Dataset identifier"
+                    },
+                    "dataset_uid": {
+                      "type": "string",
+                      "description": "Unique dataset identifier"
+                    },
+                    "metas": {
+                      "type": "object",
+                      "properties": {
+                        "title": {
+                          "type": "string",
+                          "description": "Dataset title"
+                        },
+                        "description": {
+                          "type": "string",
+                          "description": "Dataset description"
+                        },
+                        "keyword": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "description": "Dataset keywords"
+                        },
+                        "theme": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "description": "Dataset themes"
+                        },
+                        "metadata_processed": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "Timestamp of last metadata processing"
+                        },
+                        "data_processed": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "Timestamp of last data processing"
+                        }
+                      }
+                    },
+                    "fields": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "Field name"
+                          },
+                          "label": {
+                            "type": "string",
+                            "description": "Field label"
+                          },
+                          "type": {
+                            "type": "string",
+                            "description": "Field data type"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "Field description"
+                          }
+                        }
+                      }
+                    },
+                    "attachments": {
+                      "type": "array",
+                      "description": "Dataset attachments and related files"
+                    },
+                    "extra_metas": {
+                      "type": "object",
+                      "properties": {
+                        "explore": {
+                          "type": "object",
+                          "properties": {
+                            "download_count": {
+                              "type": "integer",
+                              "description": "Number of dataset downloads"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Dataset not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Records",
+      "description": "Operations for retrieving dataset records"
+    },
+    {
+      "name": "Metadata",
+      "description": "Operations for retrieving dataset metadata"
+    }
+  ]
+}
