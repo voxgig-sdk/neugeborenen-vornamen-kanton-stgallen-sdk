@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk"
-	"github.com/voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk/core"
+	sdk "github.com/voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk/go"
+	"github.com/voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk/go/core"
 )
 
 func TestRecordDirect(t *testing.T) {

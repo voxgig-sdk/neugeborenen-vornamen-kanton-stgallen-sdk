@@ -3,7 +3,7 @@ package utility
 import (
 	"reflect"
 
-	"github.com/voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk/core"
+	"github.com/voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk/go/core"
 )
 
 func featureHookUtil(ctx *core.Context, name string) {

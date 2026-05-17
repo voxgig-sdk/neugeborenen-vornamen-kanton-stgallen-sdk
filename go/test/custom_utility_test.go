@@ -3,7 +3,7 @@ package sdktest
 import (
 	"testing"
 
-	sdk "github.com/voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk"
+	sdk "github.com/voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk/go"
 )
 
 func TestCustomUtility(t *testing.T) {

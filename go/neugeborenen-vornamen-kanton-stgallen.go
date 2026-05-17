@@ -1,10 +1,10 @@
 package voxgigneugeborenenvornamenkantonstgallensdk
 
 import (
-	"github.com/voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk/core"
-	"github.com/voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk/entity"
-	"github.com/voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk/feature"
-	_ "github.com/voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk/utility"
+	"github.com/voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk/go/core"
+	"github.com/voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk/go/entity"
+	"github.com/voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk/go/feature"
+	_ "github.com/voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

@@ -1,9 +1,9 @@
 package entity
 
 import (
-	"github.com/voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk/core"
+	"github.com/voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk/go/utility/struct"
 )
 
 type MetadataEntity struct {
