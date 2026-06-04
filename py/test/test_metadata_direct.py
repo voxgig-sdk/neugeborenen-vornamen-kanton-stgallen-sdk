@@ -61,14 +61,12 @@ def _metadata_direct_setup(mockres):
     env = runner.env_override({
         "NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_METADATA_ENTID": {},
         "NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_LIVE": "FALSE",
-        "NEUGEBORENENVORNAMENKANTONSTGALLEN_APIKEY": "NONE",
     })
 
     live = env.get("NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
-            "apikey": env.get("NEUGEBORENENVORNAMENKANTONSTGALLEN_APIKEY"),
         }
         client = NeugeborenenVornamenKantonStgallenSDK(merged_opts)
         return {

@@ -119,7 +119,6 @@ func metadataBasicSetup(extra map[string]any) *entityTestSetup {
 		"NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_METADATA_ENTID": idmap,
 		"NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_LIVE":      "FALSE",
 		"NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_EXPLAIN":   "FALSE",
-		"NEUGEBORENENVORNAMENKANTONSTGALLEN_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_METADATA_ENTID"])
@@ -130,7 +129,6 @@ func metadataBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
-				"apikey": env["NEUGEBORENENVORNAMENKANTONSTGALLEN_APIKEY"],
 			},
 			extra,
 		})

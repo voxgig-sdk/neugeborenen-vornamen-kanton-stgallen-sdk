@@ -18,7 +18,18 @@
         ],
         "termsOfService": "https://daten.sg.ch",
         "title": "Neugeborenen Vornamen Kanton St.Gallen",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "tagline": "Newborn first-name frequencies in Canton St.Gallen, Switzerland, year-by-year since 1987",
+        "homepage": "https://daten.sg.ch/explore/dataset/vornamen-der-neugeborenen-kanton-stgallen-seit-1987/",
+        "docs_url": "https://daten.sg.ch/api-console/",
+        "license_short": "Swiss open government data published by Canton St.Gallen.",
+        "license_md": "- Published by the [Canton St.Gallen open data portal](https://daten.sg.ch/) (daten.sg.ch).\n- Underlying source is the Federal Statistical Office's BEVNAT (natural population movement) statistics.\n- Names appearing fewer than five times per gender per year are aggregated as \"other names\" for privacy.\n- Confirm specific reuse terms on the dataset's information page before redistribution.",
+        "about_md": "This SDK wraps the **Vornamen der Neugeborenen Kanton St.Gallen seit 1987** dataset on [daten.sg.ch](https://daten.sg.ch/), the open data portal of Switzerland's Canton St.Gallen. The portal is built on Opendatasoft, which exposes every dataset through a uniform Explore v2.1 REST API.\n\nThe dataset records first names given to newborns whose mothers reside in Canton St.Gallen, drawn from the Federal Statistical Office's BEVNAT (natural population movement) statistics. Only the first registered name is counted; hyphenated names such as Anne-Sophie are treated as a single name; similar spellings are kept separate and accents are ignored.\n\nWhat you get from the API:\n\n- Per-year frequency of male and female first names in Canton St.Gallen since 1987\n- Filtering by year and by gender via the standard Opendatasoft query parameters\n- Names appearing fewer than five times in a given year/gender are bucketed as \"other names\" to protect privacy\n\nOperational notes: the portal supports CORS in browsers, and access is unauthenticated for catalogue browsing and record reads. Refer to the API console on daten.sg.ch for query syntax (`where`, `select`, `group_by`, `order_by`, `limit`, `offset`).",
+        "entity_desc": {
+          "metadata": "Dataset metadata exposed by the Opendatasoft catalogue, typically under `/explore/v2.1/catalog/datasets/vornamen-der-neugeborenen-kanton-stgallen-seit-1987`.",
+          "record": "Individual newborn-name frequency rows for a given year and gender, retrieved from `/explore/v2.1/catalog/datasets/vornamen-der-neugeborenen-kanton-stgallen-seit-1987/records`."
+        },
+        "auth": false
       },
       "config": {
         "auth": {
@@ -26,7 +37,15 @@
         },
         "headers": {
           "content-type": "application/json"
-        }
+        },
+        "docs_order": [
+          "ts",
+          "py",
+          "php",
+          "go",
+          "rb",
+          "lua"
+        ]
       },
       "entity": {
         "metadata": {

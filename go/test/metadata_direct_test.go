@@ -93,14 +93,12 @@ func metadataDirectSetup(mockres any) *metadataDirectSetupResult {
 	env := envOverride(map[string]any{
 		"NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_METADATA_ENTID": map[string]any{},
 		"NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_LIVE":    "FALSE",
-		"NEUGEBORENENVORNAMENKANTONSTGALLEN_APIKEY":       "NONE",
 	})
 
 	live := env["NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["NEUGEBORENENVORNAMENKANTONSTGALLEN_APIKEY"],
 		}
 		client := sdk.NewNeugeborenenVornamenKantonStgallenSDK(mergedOpts)
 
