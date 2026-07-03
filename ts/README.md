@@ -10,7 +10,7 @@ The TypeScript SDK for the NeugeborenenVornamenKantonStgallen API — a type-saf
 
 ## Install
 ```bash
-npm install neugeborenen-vornamen-kanton-stgallen
+npm install @voxgig-sdk/neugeborenen-vornamen-kanton-stgallen
 ```
 ## Tutorial: your first API call
 

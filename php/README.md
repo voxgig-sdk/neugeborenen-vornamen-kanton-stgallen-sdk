@@ -10,7 +10,7 @@ The PHP SDK for the NeugeborenenVornamenKantonStgallen API — an entity-oriente
 
 ## Install
 ```bash
-composer require voxgig/neugeborenen-vornamen-kanton-stgallen-sdk
+composer require voxgig-sdk/neugeborenen-vornamen-kanton-stgallen
 ```
 
 

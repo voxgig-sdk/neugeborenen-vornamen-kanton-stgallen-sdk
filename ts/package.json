@@ -1,7 +1,23 @@
 {
   "name": "@voxgig-sdk/neugeborenen-vornamen-kanton-stgallen",
   "version": "0.0.1",
-  "description": "DESCRIPTION",
+  "description": "Unofficial generated TypeScript SDK for the Neugeborenen Vornamen Kanton St.Gallen public API. Not affiliated with or endorsed by the upstream API provider.",
+  "keywords": [
+    "voxgig",
+    "sdk",
+    "generated-sdk",
+    "openapi",
+    "api-client",
+    "neugeborenen-vornamen-kanton-stgallen"
+  ],
+  "homepage": "https://github.com/voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk/issues"
+  },
   "main": "dist/NeugeborenenVornamenKantonStgallenSDK.js",
   "type": "commonjs",
   "types": "dist/NeugeborenenVornamenKantonStgallenSDK.d.ts",
@@ -14,7 +30,10 @@
     "clean": "rm -rf node_modules yarn.lock package-lock.json",
     "reset": "npm run clean && npm i && npm run build && npm test"
   },
-  "author": "NeugeborenenVornamenKantonStgallen",
+  "author": {
+    "name": "Voxgig",
+    "url": "https://voxgig.com"
+  },
   "license": "MIT",
   "dependencies": {},
   "peerDependencies": {},

@@ -10,7 +10,7 @@ The Python SDK for the NeugeborenenVornamenKantonStgallen API — an entity-orie
 
 ## Install
 ```bash
-pip install neugeborenen-vornamen-kanton-stgallen-sdk
+pip install voxgig-sdk-neugeborenen-vornamen-kanton-stgallen
 ```
 
 Or install from source:

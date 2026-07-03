@@ -2,9 +2,17 @@ Gem::Specification.new do |spec|
   spec.name          = "voxgig-sdk-neugeborenen-vornamen-kanton-stgallen"
   spec.version       = "0.0.1"
   spec.authors       = ["Voxgig"]
-  spec.summary       = "NeugeborenenVornamenKantonStgallen SDK for Ruby"
+  spec.summary       = "Unofficial generated Ruby SDK for the Neugeborenen Vornamen Kanton St.Gallen public API. Not affiliated with or endorsed by the upstream API provider."
+  spec.description   = "Unofficial generated Ruby SDK for the Neugeborenen Vornamen Kanton St.Gallen public API. Not affiliated with or endorsed by the upstream API provider."
   spec.license       = "MIT"
   spec.homepage      = "https://github.com/voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk"
+  spec.metadata      = {
+    "homepage_uri"          => "https://github.com/voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk",
+    "source_code_uri"       => "https://github.com/voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk",
+    "bug_tracker_uri"       => "https://github.com/voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk/issues",
+    "changelog_uri"         => "https://github.com/voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk/blob/main/CHANGELOG.md",
+    "rubygems_mfa_required" => "true"
+  }
 
   spec.files         = Dir["lib/**/*.rb", "*.rb"]
   spec.require_paths = ["."]

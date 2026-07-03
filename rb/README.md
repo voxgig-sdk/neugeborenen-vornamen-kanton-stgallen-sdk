@@ -10,13 +10,13 @@ The Ruby SDK for the NeugeborenenVornamenKantonStgallen API — an entity-orient
 
 ## Install
 ```bash
-gem install neugeborenen-vornamen-kanton-stgallen-sdk
+gem install voxgig-sdk-neugeborenen-vornamen-kanton-stgallen
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "neugeborenen-vornamen-kanton-stgallen-sdk"
+gem "voxgig-sdk-neugeborenen-vornamen-kanton-stgallen"
 ```
 
 Then run:

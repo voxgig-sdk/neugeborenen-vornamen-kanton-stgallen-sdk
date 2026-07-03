@@ -10,7 +10,7 @@ The Lua SDK for the NeugeborenenVornamenKantonStgallen API — an entity-oriente
 
 ## Install
 ```bash
-luarocks install neugeborenen-vornamen-kanton-stgallen-sdk
+luarocks install voxgig-sdk-neugeborenen-vornamen-kanton-stgallen
 ```
 
 If the module is not yet published, add the source directory to
