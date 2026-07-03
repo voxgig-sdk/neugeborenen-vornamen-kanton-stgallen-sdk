@@ -92,6 +92,7 @@ def _record_basic_setup(extra):
         "NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_RECORD_ENTID": idmap,
         "NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_LIVE": "FALSE",
         "NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_EXPLAIN": "FALSE",
+        "NEUGEBORENENVORNAMENKANTONSTGALLEN_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,6 +103,7 @@ def _record_basic_setup(extra):
     if env.get("NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
+                "apikey": env.get("NEUGEBORENENVORNAMENKANTONSTGALLEN_APIKEY"),
             },
             extra or {},
         ])

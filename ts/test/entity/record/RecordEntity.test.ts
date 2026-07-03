@@ -113,6 +113,7 @@ function basicSetup(extra?: any) {
     'NEUGEBORENEN_VORNAMEN_KANTON_STGALLEN_TEST_RECORD_ENTID': idmap,
     'NEUGEBORENEN_VORNAMEN_KANTON_STGALLEN_TEST_LIVE': 'FALSE',
     'NEUGEBORENEN_VORNAMEN_KANTON_STGALLEN_TEST_EXPLAIN': 'FALSE',
+    'NEUGEBORENEN_VORNAMEN_KANTON_STGALLEN_APIKEY': 'NONE',
   })
 
   idmap = env['NEUGEBORENEN_VORNAMEN_KANTON_STGALLEN_TEST_RECORD_ENTID']
@@ -122,6 +123,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new NeugeborenenVornamenKantonStgallenSDK(merge([
       {
+        apikey: env.NEUGEBORENEN_VORNAMEN_KANTON_STGALLEN_APIKEY,
       },
       extra
     ]))
