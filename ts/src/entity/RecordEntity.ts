@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Record,
+  RecordListMatch,
+} from '../NeugeborenenVornamenKantonStgallenTypes'
 
 // TODO: needs Entity superclass
-class RecordEntity extends NeugeborenenVornamenKantonStgallenEntityBase {
+class RecordEntity extends NeugeborenenVornamenKantonStgallenEntityBase<Record> {
 
   constructor(client: NeugeborenenVornamenKantonStgallenSDK, entopts: any) {
     super(client, entopts)
@@ -33,7 +37,7 @@ class RecordEntity extends NeugeborenenVornamenKantonStgallenEntityBase {
 
 
 
-  async list(this: any, reqmatch?: any, ctrl?: Control) {
+  async list(this: any, reqmatch?: RecordListMatch, ctrl?: Control): Promise<Record[]> {
 
     const utility = this._utility
 
@@ -133,7 +137,9 @@ class RecordEntity extends NeugeborenenVornamenKantonStgallenEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Record[]> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

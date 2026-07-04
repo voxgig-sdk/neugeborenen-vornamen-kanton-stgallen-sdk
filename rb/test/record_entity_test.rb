@@ -43,8 +43,7 @@ class RecordEntityTest < Minitest::Test
     record_ref01_ent = client.Record(nil)
     record_ref01_match = {}
 
-    record_ref01_list_result, err = record_ref01_ent.list(record_ref01_match, nil)
-    assert_nil err
+    record_ref01_list_result = record_ref01_ent.list(record_ref01_match, nil)
     assert record_ref01_list_result.is_a?(Array)
 
   end
@@ -83,7 +82,6 @@ def record_basic_setup(extra)
     "NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_RECORD_ENTID" => idmap,
     "NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_LIVE" => "FALSE",
     "NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_EXPLAIN" => "FALSE",
-    "NEUGEBORENENVORNAMENKANTONSTGALLEN_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -95,7 +93,6 @@ def record_basic_setup(extra)
   if env["NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["NEUGEBORENENVORNAMENKANTONSTGALLEN_APIKEY"],
       },
       extra || {},
     ])

@@ -245,11 +245,17 @@ func (sdk *NeugeborenenVornamenKantonStgallenSDK) Direct(fetchargs map[string]an
 }
 
 
+// Metadata returns a Metadata entity bound to this client.
+// Idiomatic usage: client.Metadata(nil).List(nil, nil) or
+// client.Metadata(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *NeugeborenenVornamenKantonStgallenSDK) Metadata(data map[string]any) NeugeborenenVornamenKantonStgallenEntity {
 	return NewMetadataEntityFunc(sdk, data)
 }
 
 
+// Record returns a Record entity bound to this client.
+// Idiomatic usage: client.Record(nil).List(nil, nil) or
+// client.Record(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *NeugeborenenVornamenKantonStgallenSDK) Record(data map[string]any) NeugeborenenVornamenKantonStgallenEntity {
 	return NewRecordEntityFunc(sdk, data)
 }

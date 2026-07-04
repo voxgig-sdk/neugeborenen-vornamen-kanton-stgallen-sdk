@@ -92,7 +92,6 @@ function metadata_basic_setup(extra)
     ["NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_METADATA_ENTID"] = idmap,
     ["NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_LIVE"] = "FALSE",
     ["NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_EXPLAIN"] = "FALSE",
-    ["NEUGEBORENENVORNAMENKANTONSTGALLEN_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -104,7 +103,6 @@ function metadata_basic_setup(extra)
   if env["NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
-        apikey = env["NEUGEBORENENVORNAMENKANTONSTGALLEN_APIKEY"],
       },
       extra or {},
     })

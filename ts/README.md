@@ -9,9 +9,12 @@ The TypeScript SDK for the NeugeborenenVornamenKantonStgallen API — a type-saf
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/neugeborenen-vornamen-kanton-stgallen
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk/releases](https://github.com/voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,15 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { NeugeborenenVornamenKantonStgallenSDK } from 'neugeborenen-vornamen-kanton-stgallen'
+import { NeugeborenenVornamenKantonStgallenSDK } from '@voxgig-sdk/neugeborenen-vornamen-kanton-stgallen'
 
-const client = new NeugeborenenVornamenKantonStgallenSDK({
-  apikey: process.env.NEUGEBORENEN-VORNAMEN-KANTON-STGALLEN_APIKEY,
-})
+const client = new NeugeborenenVornamenKantonStgallenSDK()
 ```
 
 ### 2. List metadatas
 
 ```ts
-const result = await client.Metadata().list()
+const result = await client.metadata.list()
 
 if (result.ok) {
   for (const item of result.data) {
@@ -81,7 +82,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = NeugeborenenVornamenKantonStgallenSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.metadata.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -89,7 +90,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new NeugeborenenVornamenKantonStgallenSDK({ apikey: '...' })
+const client = new NeugeborenenVornamenKantonStgallenSDK()
 const testClient = client.tester()
 ```
 
@@ -98,7 +99,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.metadata
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -125,7 +126,6 @@ const logger = {
 }
 
 const client = new NeugeborenenVornamenKantonStgallenSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -135,8 +135,7 @@ const client = new NeugeborenenVornamenKantonStgallenSDK({
 Create a `.env.local` file at the project root:
 
 ```
-NEUGEBORENEN-VORNAMEN-KANTON-STGALLEN_TEST_LIVE=TRUE
-NEUGEBORENEN-VORNAMEN-KANTON-STGALLEN_APIKEY=<your-key>
+NEUGEBORENEN_VORNAMEN_KANTON_STGALLEN_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -154,7 +153,6 @@ cd ts && npm test
 
 ```ts
 new NeugeborenenVornamenKantonStgallenSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -165,7 +163,6 @@ new NeugeborenenVornamenKantonStgallenSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -287,7 +284,7 @@ API path: `/explore/v2.1/catalog/datasets/vornamen-der-neugeborenen-kanton-stgal
 
 ### Metadata
 
-Create an instance: `const metadata = client.Metadata()`
+Create an instance: `const metadata = client.metadata`
 
 #### Operations
 
@@ -307,13 +304,13 @@ Create an instance: `const metadata = client.Metadata()`
 #### Example: List
 
 ```ts
-const metadatas = await client.Metadata().list()
+const metadatas = await client.metadata.list()
 ```
 
 
 ### Record
 
-Create an instance: `const record = client.Record()`
+Create an instance: `const record = client.record`
 
 #### Operations
 
@@ -335,7 +332,7 @@ Create an instance: `const record = client.Record()`
 #### Example: List
 
 ```ts
-const records = await client.Record().list()
+const records = await client.record.list()
 ```
 
 
@@ -396,7 +393,7 @@ neugeborenen-vornamen-kanton-stgallen/
 Import the SDK from the package root:
 
 ```ts
-import { NeugeborenenVornamenKantonStgallenSDK } from 'neugeborenen-vornamen-kanton-stgallen'
+import { NeugeborenenVornamenKantonStgallenSDK } from '@voxgig-sdk/neugeborenen-vornamen-kanton-stgallen'
 ```
 
 ### Entity state
@@ -406,11 +403,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const metadata = client.metadata
+await metadata.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// metadata.data() now returns the loaded metadata data
+// metadata.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

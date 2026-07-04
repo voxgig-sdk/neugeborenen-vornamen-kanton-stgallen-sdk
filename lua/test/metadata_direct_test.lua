@@ -63,14 +63,12 @@ function metadata_direct_setup(mockres)
   local env = runner.env_override({
     ["NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_METADATA_ENTID"] = {},
     ["NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_LIVE"] = "FALSE",
-    ["NEUGEBORENENVORNAMENKANTONSTGALLEN_APIKEY"] = "NONE",
   })
 
   local live = env["NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
-      apikey = env["NEUGEBORENENVORNAMENKANTONSTGALLEN_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

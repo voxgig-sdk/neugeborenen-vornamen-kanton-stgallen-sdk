@@ -10,26 +10,24 @@ This is an unofficial SDK for the Neugeborenen Vornamen Kanton St.Gallen public 
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/neugeborenen-vornamen-kanton-stgallen` | `npm install @voxgig-sdk/neugeborenen-vornamen-kanton-stgallen` |
-| Python | `voxgig-sdk-neugeborenen-vornamen-kanton-stgallen` | `pip install voxgig-sdk-neugeborenen-vornamen-kanton-stgallen` |
-| PHP | `voxgig-sdk/neugeborenen-vornamen-kanton-stgallen` | `composer require voxgig-sdk/neugeborenen-vornamen-kanton-stgallen` |
-| Golang | `github.com/voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk/go` | `go get github.com/voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk/go` |
-| Ruby | `voxgig-sdk-neugeborenen-vornamen-kanton-stgallen` | `gem install voxgig-sdk-neugeborenen-vornamen-kanton-stgallen` |
-| Lua | `voxgig-sdk-neugeborenen-vornamen-kanton-stgallen` | `luarocks install voxgig-sdk-neugeborenen-vornamen-kanton-stgallen` |
+| TypeScript | `@voxgig-sdk/neugeborenen-vornamen-kanton-stgallen` | publish pending — [install from git tag](https://github.com/voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk/releases) |
+| Python | `voxgig-sdk-neugeborenen-vornamen-kanton-stgallen` | publish pending — [install from git tag](https://github.com/voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk/releases) |
+| PHP | `voxgig-sdk/neugeborenen-vornamen-kanton-stgallen` | publish pending — [install from git tag](https://github.com/voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk/releases) |
+| Golang | `github.com/voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk/go` | `go get github.com/voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk/go@latest` |
+| Ruby | `voxgig-sdk-neugeborenen-vornamen-kanton-stgallen` | publish pending — [install from git tag](https://github.com/voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk/releases) |
+| Lua | `voxgig-sdk-neugeborenen-vornamen-kanton-stgallen` | publish pending — [install from git tag](https://github.com/voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk/releases) |
 
 ## Quickstart
 
 ### TypeScript
 
 ```ts
-import { NeugeborenenVornamenKantonStgallenSDK } from 'neugeborenen-vornamen-kanton-stgallen'
+import { NeugeborenenVornamenKantonStgallenSDK } from '@voxgig-sdk/neugeborenen-vornamen-kanton-stgallen'
 
-const client = new NeugeborenenVornamenKantonStgallenSDK({
-  apikey: process.env.NEUGEBORENEN-VORNAMEN-KANTON-STGALLEN_APIKEY,
-})
+const client = new NeugeborenenVornamenKantonStgallenSDK()
 
 // List all metadatas
-const metadatas = await client.Metadata().list()
+const metadatas = await client.metadata.list()
 console.log(metadatas.data)
 ```
 
@@ -71,8 +69,8 @@ The API exposes 2 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Metadata** |  | `/explore/v2.1/catalog/datasets/vornamen-der-neugeborenen-kanton-stgallen-seit-1987` |
-| **Record** |  | `/explore/v2.1/catalog/datasets/vornamen-der-neugeborenen-kanton-stgallen-seit-1987/records` |
+| **Metadata** | The Metadata entity (list). | `/explore/v2.1/catalog/datasets/vornamen-der-neugeborenen-kanton-stgallen-seit-1987` |
+| **Record** | The Record entity (list). | `/explore/v2.1/catalog/datasets/vornamen-der-neugeborenen-kanton-stgallen-seit-1987/records` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -82,15 +80,12 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
-import os
 from neugeborenenvornamenkantonstgallen_sdk import NeugeborenenVornamenKantonStgallenSDK
 
-client = NeugeborenenVornamenKantonStgallenSDK({
-    "apikey": os.environ.get("NEUGEBORENEN-VORNAMEN-KANTON-STGALLEN_APIKEY"),
-})
+client = NeugeborenenVornamenKantonStgallenSDK()
 
 # List all metadatas
-metadatas, err = client.Metadata().list()
+metadatas = client.metadata.list()
 print(metadatas)
 ```
 
@@ -100,12 +95,10 @@ print(metadatas)
 <?php
 require_once 'neugeborenenvornamenkantonstgallen_sdk.php';
 
-$client = new NeugeborenenVornamenKantonStgallenSDK([
-    "apikey" => getenv("NEUGEBORENEN-VORNAMEN-KANTON-STGALLEN_APIKEY"),
-]);
+$client = new NeugeborenenVornamenKantonStgallenSDK();
 
-// List all metadatas
-[$metadatas, $err] = $client->Metadata()->list();
+// List all metadatas (throws on error)
+$metadatas = $client->metadata()->list();
 print_r($metadatas);
 ```
 
@@ -114,9 +107,7 @@ print_r($metadatas);
 ```go
 import sdk "github.com/voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk/go"
 
-client := sdk.NewNeugeborenenVornamenKantonStgallenSDK(map[string]any{
-    "apikey": os.Getenv("NEUGEBORENEN-VORNAMEN-KANTON-STGALLEN_APIKEY"),
-})
+client := sdk.New()
 
 // List all metadatas
 metadatas, err := client.Metadata(nil).List(nil, nil)
@@ -128,12 +119,10 @@ fmt.Println(metadatas)
 ```ruby
 require_relative "NeugeborenenVornamenKantonStgallen_sdk"
 
-client = NeugeborenenVornamenKantonStgallenSDK.new({
-  "apikey" => ENV["NEUGEBORENEN-VORNAMEN-KANTON-STGALLEN_APIKEY"],
-})
+client = NeugeborenenVornamenKantonStgallenSDK.new
 
 # List all metadatas
-metadatas, err = client.Metadata().list
+metadatas = client.metadata.list
 puts metadatas
 ```
 
@@ -142,12 +131,10 @@ puts metadatas
 ```lua
 local sdk = require("neugeborenen-vornamen-kanton-stgallen_sdk")
 
-local client = sdk.new({
-  apikey = os.getenv("NEUGEBORENEN-VORNAMEN-KANTON-STGALLEN_APIKEY"),
-})
+local client = sdk.new()
 
 -- List all metadatas
-local metadatas, err = client:Metadata():list()
+local metadatas, err = client:metadata():list()
 print(metadatas)
 ```
 
@@ -160,7 +147,7 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = NeugeborenenVornamenKantonStgallenSDK.test()
-const result = await client.Metadata().load({ id: 'test01' })
+const result = await client.metadata.load({ id: 'test01' })
 // result.ok === true, result.data contains mock data
 ```
 
@@ -168,14 +155,14 @@ const result = await client.Metadata().load({ id: 'test01' })
 
 ```python
 client = NeugeborenenVornamenKantonStgallenSDK.test()
-result, err = client.Metadata().load({"id": "test01"})
+result = client.metadata.load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
 $client = NeugeborenenVornamenKantonStgallenSDK::test();
-[$result, $err] = $client->Metadata()->load(["id" => "test01"]);
+$result = $client->metadata()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -191,14 +178,14 @@ result, err := client.Metadata(nil).Load(
 
 ```ruby
 client = NeugeborenenVornamenKantonStgallenSDK.test
-result, err = client.Metadata().load({ "id" => "test01" })
+result = client.metadata.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:Metadata():load({ id = "test01" })
+local result, err = client:metadata():load({ id = "test01" })
 ```
 
 ## How it works
@@ -251,7 +238,7 @@ console.log(result.data)
 
 **Python:**
 ```python
-result, err = client.direct({
+result = client.direct({
     "path": "/api/resource/{id}",
     "method": "GET",
     "params": {"id": "example"},
@@ -260,7 +247,7 @@ result, err = client.direct({
 
 **PHP:**
 ```php
-[$result, $err] = $client->direct([
+$result = $client->direct([
     "path" => "/api/resource/{id}",
     "method" => "GET",
     "params" => ["id" => "example"],
@@ -278,7 +265,7 @@ result, err := client.Direct(map[string]any{
 
 **Ruby:**
 ```ruby
-result, err = client.direct({
+result = client.direct({
   "path" => "/api/resource/{id}",
   "method" => "GET",
   "params" => { "id" => "example" },

@@ -19,7 +19,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `table` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -88,7 +87,7 @@ same parameters as `direct()`.
 ## MetadataEntity
 
 ```lua
-local metadata = client:Metadata(nil)
+local metadata = client:metadata(nil)
 ```
 
 ### Fields
@@ -107,7 +106,7 @@ local metadata = client:Metadata(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Metadata():list()
+local results, err = client:metadata():list()
 ```
 
 ### Common Methods
@@ -143,7 +142,7 @@ Return the entity name.
 ## RecordEntity
 
 ```lua
-local record = client:Record(nil)
+local record = client:record(nil)
 ```
 
 ### Fields
@@ -164,7 +163,7 @@ local record = client:Record(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Record():list()
+local results, err = client:record():list()
 ```
 
 ### Common Methods

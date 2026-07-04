@@ -50,8 +50,7 @@ class TestMetadataEntity:
         metadata_ref01_ent = client.Metadata(None)
         metadata_ref01_match = {}
 
-        metadata_ref01_list_result, err = metadata_ref01_ent.list(metadata_ref01_match, None)
-        assert err is None
+        metadata_ref01_list_result = metadata_ref01_ent.list(metadata_ref01_match, None)
         assert isinstance(metadata_ref01_list_result, list)
 
 
@@ -92,7 +91,6 @@ def _metadata_basic_setup(extra):
         "NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_METADATA_ENTID": idmap,
         "NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_LIVE": "FALSE",
         "NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_EXPLAIN": "FALSE",
-        "NEUGEBORENENVORNAMENKANTONSTGALLEN_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +101,6 @@ def _metadata_basic_setup(extra):
     if env.get("NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("NEUGEBORENENVORNAMENKANTONSTGALLEN_APIKEY"),
             },
             extra or {},
         ])

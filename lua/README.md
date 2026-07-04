@@ -9,12 +9,9 @@ The Lua SDK for the NeugeborenenVornamenKantonStgallen API — an entity-oriente
 
 
 ## Install
-```bash
-luarocks install voxgig-sdk-neugeborenen-vornamen-kanton-stgallen
-```
-
-If the module is not yet published, add the source directory to
-your `LUA_PATH`:
+This package is not yet published to LuaRocks. Install it from the
+GitHub release tag (`lua/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk/releases)),
+or add the source directory to your `LUA_PATH`:
 
 ```bash
 export LUA_PATH="path/to/lua/?.lua;path/to/lua/?/init.lua;;"
@@ -31,15 +28,13 @@ loading a specific record.
 ```lua
 local sdk = require("neugeborenen-vornamen-kanton-stgallen_sdk")
 
-local client = sdk.new({
-  apikey = os.getenv("NEUGEBORENEN-VORNAMEN-KANTON-STGALLEN_APIKEY"),
-})
+local client = sdk.new()
 ```
 
 ### 2. List metadatas
 
 ```lua
-local result, err = client:Metadata():list()
+local result, err = client:metadata():list()
 if err then error(err) end
 
 if type(result) == "table" then
@@ -93,7 +88,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:NeugeborenenVornamenKantonStgallen():load({ id = "test01" })
+local result, err = client:metadata():load({ id = "test01" })
 -- result contains mock response data
 ```
 
@@ -126,8 +121,7 @@ local client = sdk.new({
 Create a `.env.local` file at the project root:
 
 ```
-NEUGEBORENEN-VORNAMEN-KANTON-STGALLEN_TEST_LIVE=TRUE
-NEUGEBORENEN-VORNAMEN-KANTON-STGALLEN_APIKEY=<your-key>
+NEUGEBORENEN_VORNAMEN_KANTON_STGALLEN_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -150,7 +144,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -246,7 +239,7 @@ API path: `/explore/v2.1/catalog/datasets/vornamen-der-neugeborenen-kanton-stgal
 
 ### Metadata
 
-Create an instance: `const metadata = client.Metadata()`
+Create an instance: `const metadata = client.metadata`
 
 #### Operations
 
@@ -266,13 +259,13 @@ Create an instance: `const metadata = client.Metadata()`
 #### Example: List
 
 ```ts
-const metadatas = await client.Metadata().list()
+const metadatas = await client.metadata.list()
 ```
 
 
 ### Record
 
-Create an instance: `const record = client.Record()`
+Create an instance: `const record = client.record`
 
 #### Operations
 
@@ -294,7 +287,7 @@ Create an instance: `const record = client.Record()`
 #### Example: List
 
 ```ts
-const records = await client.Record().list()
+const records = await client.record.list()
 ```
 
 
@@ -369,11 +362,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local moon = client:Moon(nil)
-moon:load({ planet_id = "earth", id = "luna" }, nil)
+local metadata = client:metadata()
+metadata:load({ id = "example_id" })
 
--- moon:data_get() now returns the loaded moon data
--- moon:match_get() returns the last match criteria
+-- metadata:data_get() now returns the loaded metadata data
+-- metadata:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

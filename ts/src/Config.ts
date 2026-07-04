@@ -38,10 +38,6 @@ class Config {
   options = {
     base: 'https://daten.sg.ch/api',
 
-    auth: {
-      prefix: 'Bearer',
-    },
-
     headers: {
       "content-type": "application/json"
     },

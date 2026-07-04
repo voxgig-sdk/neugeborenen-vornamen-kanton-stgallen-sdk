@@ -79,14 +79,12 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_METADATA_ENTID': {},
     'NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_LIVE': 'FALSE',
-    'NEUGEBORENENVORNAMENKANTONSTGALLEN_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_LIVE
 
   if (live) {
     const client = new NeugeborenenVornamenKantonStgallenSDK({
-      apikey: env.NEUGEBORENENVORNAMENKANTONSTGALLEN_APIKEY,
     })
 
     let idmap: any = env['NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_METADATA_ENTID']

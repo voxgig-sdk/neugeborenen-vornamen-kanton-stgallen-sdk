@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -122,7 +121,7 @@ Alias for `NeugeborenenVornamenKantonStgallenSDK.test()`.
 ## MetadataEntity
 
 ```ts
-const metadata = client.Metadata()
+const metadata = client.metadata
 ```
 
 ### Fields
@@ -141,7 +140,7 @@ const metadata = client.Metadata()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Metadata().list()
+const results = await client.metadata.list()
 ```
 
 ### Common Methods
@@ -175,7 +174,7 @@ Return a copy of the entity options.
 ## RecordEntity
 
 ```ts
-const record = client.Record()
+const record = client.record
 ```
 
 ### Fields
@@ -196,7 +195,7 @@ const record = client.Record()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Record().list()
+const results = await client.record.list()
 ```
 
 ### Common Methods

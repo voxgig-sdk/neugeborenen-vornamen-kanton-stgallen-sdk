@@ -3,6 +3,8 @@
 import { MetadataEntity } from './entity/MetadataEntity'
 import { RecordEntity } from './entity/RecordEntity'
 
+export type * from './NeugeborenenVornamenKantonStgallenTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -203,12 +205,28 @@ class NeugeborenenVornamenKantonStgallenSDK {
 
 
 
+  _metadata?: MetadataEntity
+
+  // Idiomatic facade: `client.metadata.list()` / `client.metadata.load({ id })`.
+  get metadata(): MetadataEntity {
+    return (this._metadata ??= new MetadataEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.metadata` instead. */
   Metadata(data?: any) {
     const self = this
     return new MetadataEntity(self,data)
   }
 
 
+  _record?: RecordEntity
+
+  // Idiomatic facade: `client.record.list()` / `client.record.load({ id })`.
+  get record(): RecordEntity {
+    return (this._record ??= new RecordEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.record` instead. */
   Record(data?: any) {
     const self = this
     return new RecordEntity(self,data)
