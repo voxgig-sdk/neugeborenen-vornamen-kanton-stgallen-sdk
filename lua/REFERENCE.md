@@ -87,7 +87,7 @@ same parameters as `direct()`.
 ## MetadataEntity
 
 ```lua
-local metadata = client:metadata(nil)
+local metadata = client:Metadata(nil)
 ```
 
 ### Fields
@@ -106,7 +106,7 @@ local metadata = client:metadata(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:metadata():list()
+local results, err = client:Metadata():list()
 ```
 
 ### Common Methods
@@ -142,7 +142,7 @@ Return the entity name.
 ## RecordEntity
 
 ```lua
-local record = client:record(nil)
+local record = client:Record(nil)
 ```
 
 ### Fields
@@ -163,7 +163,7 @@ local record = client:record(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:record():list()
+local results, err = client:Record():list()
 ```
 
 ### Common Methods

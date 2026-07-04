@@ -121,7 +121,7 @@ Alias for `NeugeborenenVornamenKantonStgallenSDK.test()`.
 ## MetadataEntity
 
 ```ts
-const metadata = client.metadata
+const metadata = client.Metadata()
 ```
 
 ### Fields
@@ -140,7 +140,7 @@ const metadata = client.metadata
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.metadata.list()
+const results = await client.Metadata().list()
 ```
 
 ### Common Methods
@@ -174,7 +174,7 @@ Return a copy of the entity options.
 ## RecordEntity
 
 ```ts
-const record = client.record
+const record = client.Record()
 ```
 
 ### Fields
@@ -195,7 +195,7 @@ const record = client.record
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.record.list()
+const results = await client.Record().list()
 ```
 
 ### Common Methods

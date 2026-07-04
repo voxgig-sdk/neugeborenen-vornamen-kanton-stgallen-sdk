@@ -28,16 +28,14 @@ require_relative "NeugeborenenVornamenKantonStgallen_sdk"
 client = NeugeborenenVornamenKantonStgallenSDK.new
 ```
 
-### 2. List metadatas
+### 2. List metadata records
 
 ```ruby
 begin
-  result = client.metadata.list
-  if result.is_a?(Array)
-    result.each do |item|
-      d = item.data_get
-      puts "#{d["id"]} #{d["name"]}"
-    end
+  # list returns an Array of Metadata records — iterate directly.
+  metadatas = client.Metadata.list
+  metadatas.each do |item|
+    puts "#{item["id"]} #{item["name"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -85,13 +83,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = NeugeborenenVornamenKantonStgallenSDK.test
+client = NeugeborenenVornamenKantonStgallenSDK.test({
+  "entity" => { "metadata" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.metadata.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+metadata = client.Metadata.load({ "id" => "test01" })
+puts metadata
 ```
 
 ### Use a custom fetch function
@@ -242,7 +244,7 @@ API path: `/explore/v2.1/catalog/datasets/vornamen-der-neugeborenen-kanton-stgal
 
 ### Metadata
 
-Create an instance: `const metadata = client.metadata`
+Create an instance: `metadata = client.Metadata`
 
 #### Operations
 
@@ -261,14 +263,15 @@ Create an instance: `const metadata = client.metadata`
 
 #### Example: List
 
-```ts
-const metadatas = await client.metadata.list()
+```ruby
+# list returns an Array of Metadata records (raises on error).
+metadatas = client.Metadata.list
 ```
 
 
 ### Record
 
-Create an instance: `const record = client.record`
+Create an instance: `record = client.Record`
 
 #### Operations
 
@@ -289,8 +292,9 @@ Create an instance: `const record = client.record`
 
 #### Example: List
 
-```ts
-const records = await client.record.list()
+```ruby
+# list returns an Array of Record records (raises on error).
+records = client.Record.list
 ```
 
 
@@ -365,7 +369,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-metadata = client.metadata
+metadata = client.Metadata
 metadata.load({ "id" => "example_id" })
 
 # metadata.data_get now returns the loaded metadata data

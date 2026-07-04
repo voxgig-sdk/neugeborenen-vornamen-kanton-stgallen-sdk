@@ -28,15 +28,15 @@ import { NeugeborenenVornamenKantonStgallenSDK } from '@voxgig-sdk/neugeborenen-
 const client = new NeugeborenenVornamenKantonStgallenSDK()
 ```
 
-### 2. List metadatas
+### 2. List metadata records
+
+`list()` resolves to an array of Metadata objects — iterate it directly:
 
 ```ts
-const result = await client.metadata.list()
+const metadatas = await client.Metadata().list()
 
-if (result.ok) {
-  for (const item of result.data) {
-    console.log(item.id, item.name)
-  }
+for (const metadata of metadatas) {
+  console.log(metadata)
 }
 ```
 
@@ -54,6 +54,9 @@ const result = await client.direct({
   params: { id: 'example' },
 })
 
+if (result instanceof Error) {
+  throw result
+}
 if (result.ok) {
   console.log(result.status)  // 200
   console.log(result.data)    // response body
@@ -82,9 +85,9 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = NeugeborenenVornamenKantonStgallenSDK.test()
 
-const result = await client.metadata.load({ id: 'test01' })
-// result.ok === true
-// result.data contains mock response data
+const metadata = await client.Metadata().load({ id: 'test01' })
+// metadata is a bare entity populated with mock response data
+console.log(metadata)
 ```
 
 You can also use the instance method:
@@ -99,7 +102,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.metadata
+const entity = client.Metadata()
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -195,29 +198,30 @@ All entities share the same interface.
 
 | Method | Signature | Description |
 | --- | --- | --- |
-| `load` | `load(reqmatch?, ctrl?): Promise<Result>` | Load a single entity by match criteria. |
-| `list` | `list(reqmatch?, ctrl?): Promise<Result>` | List entities matching the criteria. |
-| `create` | `create(reqdata?, ctrl?): Promise<Result>` | Create a new entity. |
-| `update` | `update(reqdata?, ctrl?): Promise<Result>` | Update an existing entity. |
-| `remove` | `remove(reqmatch?, ctrl?): Promise<Result>` | Remove an entity. |
+| `load` | `load(reqmatch?, ctrl?): Promise<Entity>` | Load a single entity by match criteria. |
+| `list` | `list(reqmatch?, ctrl?): Promise<Entity[]>` | List entities matching the criteria. |
+| `create` | `create(reqdata?, ctrl?): Promise<Entity>` | Create a new entity. |
+| `update` | `update(reqdata?, ctrl?): Promise<Entity>` | Update an existing entity. |
+| `remove` | `remove(reqmatch?, ctrl?): Promise<void>` | Remove an entity. |
 | `data` | `data(data?): any` | Get or set entity data. |
 | `match` | `match(match?): any` | Get or set entity match criteria. |
 | `make` | `make(): Entity` | Create a new instance with the same options. |
 | `client` | `client(): NeugeborenenVornamenKantonStgallenSDK` | Return the parent SDK client. |
 | `entopts` | `entopts(): object` | Return a copy of the entity options. |
 
-#### Result shape
+#### Return values
 
-All entity operations return a Result object:
+Entity operations resolve to the entity data directly — there is no
+result envelope:
 
-```ts
-{
-  ok: boolean      // true if the HTTP status is 2xx
-  status: number   // HTTP status code
-  headers: object  // response headers
-  data: any        // parsed JSON response body
-}
-```
+- `load`, `create` and `update` resolve to a single entity object.
+- `list` resolves to an **array** of entity objects (iterate it directly;
+  there is no `.data` and no `.ok`).
+- `remove` resolves to `void`.
+
+On a failed request these methods **throw**, so wrap calls in
+`try`/`catch` to handle errors. Only `direct()` returns the result
+envelope described below.
 
 ### DirectResult shape
 
@@ -284,7 +288,7 @@ API path: `/explore/v2.1/catalog/datasets/vornamen-der-neugeborenen-kanton-stgal
 
 ### Metadata
 
-Create an instance: `const metadata = client.metadata`
+Create an instance: `const metadata = client.Metadata()`
 
 #### Operations
 
@@ -304,13 +308,13 @@ Create an instance: `const metadata = client.metadata`
 #### Example: List
 
 ```ts
-const metadatas = await client.metadata.list()
+const metadatas = await client.Metadata().list()
 ```
 
 
 ### Record
 
-Create an instance: `const record = client.record`
+Create an instance: `const record = client.Record()`
 
 #### Operations
 
@@ -332,7 +336,7 @@ Create an instance: `const record = client.record`
 #### Example: List
 
 ```ts
-const records = await client.record.list()
+const records = await client.Record().list()
 ```
 
 
@@ -403,7 +407,7 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const metadata = client.metadata
+const metadata = client.Metadata()
 await metadata.load({ id: "example_id" })
 
 // metadata.data() now returns the loaded metadata data

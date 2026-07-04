@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:metadata():list() / client:metadata():load({ id = ... })
-function NeugeborenenVornamenKantonStgallenSDK:metadata(data)
+-- Idiomatic facade: client:Metadata():list() / client:Metadata():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function NeugeborenenVornamenKantonStgallenSDK:Metadata(data)
   local EntityMod = require("entity.metadata_entity")
   if data == nil then
     if self._metadata == nil then
@@ -256,15 +257,10 @@ function NeugeborenenVornamenKantonStgallenSDK:metadata(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:metadata() instead.
-function NeugeborenenVornamenKantonStgallenSDK:Metadata(data)
-  local EntityMod = require("entity.metadata_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:record():list() / client:record():load({ id = ... })
-function NeugeborenenVornamenKantonStgallenSDK:record(data)
+-- Idiomatic facade: client:Record():list() / client:Record():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function NeugeborenenVornamenKantonStgallenSDK:Record(data)
   local EntityMod = require("entity.record_entity")
   if data == nil then
     if self._record == nil then
@@ -272,12 +268,6 @@ function NeugeborenenVornamenKantonStgallenSDK:record(data)
     end
     return self._record
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:record() instead.
-function NeugeborenenVornamenKantonStgallenSDK:Record(data)
-  local EntityMod = require("entity.record_entity")
   return EntityMod.new(self, data)
 end
 

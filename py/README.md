@@ -31,14 +31,16 @@ from neugeborenenvornamenkantonstgallen_sdk import NeugeborenenVornamenKantonStg
 client = NeugeborenenVornamenKantonStgallenSDK()
 ```
 
-### 2. List metadatas
+### 2. List metadata records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
 
 ```python
 try:
-    result = client.metadata.list()
-    for item in result:
-        d = item.data_get()
-        print(d["id"], d["name"])
+    metadatas = client.Metadata().list({})
+    for metadata in metadatas:
+        print(metadata)
 except Exception as err:
     print(f"list failed: {err}")
 ```
@@ -86,8 +88,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = NeugeborenenVornamenKantonStgallenSDK.test()
 
-result = client.metadata.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+metadata = client.Metadata().load({"id": "test01"})
+# metadata contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -239,7 +242,7 @@ API path: `/explore/v2.1/catalog/datasets/vornamen-der-neugeborenen-kanton-stgal
 
 ### Metadata
 
-Create an instance: `const metadata = client.metadata`
+Create an instance: `metadata = client.Metadata()`
 
 #### Operations
 
@@ -258,14 +261,14 @@ Create an instance: `const metadata = client.metadata`
 
 #### Example: List
 
-```ts
-const metadatas = await client.metadata.list()
+```python
+metadatas = client.Metadata().list({})
 ```
 
 
 ### Record
 
-Create an instance: `const record = client.record`
+Create an instance: `record = client.Record()`
 
 #### Operations
 
@@ -286,8 +289,8 @@ Create an instance: `const record = client.record`
 
 #### Example: List
 
-```ts
-const records = await client.record.list()
+```python
+records = client.Record().list({})
 ```
 
 
@@ -361,7 +364,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-metadata = client.metadata
+metadata = client.Metadata()
 metadata.load({"id": "example_id"})
 
 # metadata.data_get() now returns the loaded metadata data

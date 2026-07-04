@@ -31,17 +31,17 @@ local sdk = require("neugeborenen-vornamen-kanton-stgallen_sdk")
 local client = sdk.new()
 ```
 
-### 2. List metadatas
+### 2. List metadata records
+
+Entity operations return `(value, err)`. For `list`, `value` is the
+array of records itself — iterate it directly (there is no wrapper).
 
 ```lua
-local result, err = client:metadata():list()
+local metadatas, err = client:Metadata():list()
 if err then error(err) end
 
-if type(result) == "table" then
-  for _, item in ipairs(result) do
-    local d = item:data_get()
-    print(d["id"], d["name"])
-  end
+for _, item in ipairs(metadatas) do
+  print(item["id"], item["name"])
 end
 ```
 
@@ -88,8 +88,8 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:metadata():load({ id = "test01" })
--- result contains mock response data
+local result, err = client:Metadata():load({ id = "test01" })
+-- result is the loaded data; err is set on failure
 ```
 
 ### Use a custom fetch function
@@ -190,17 +190,22 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return `(any, err)`. The first value is a
-`table` with these keys:
+Entity operations return `(value, err)`. The `value` is the operation's
+data **directly** — there is no wrapper:
 
-| Key | Type | Description |
-| --- | --- | --- |
-| `ok` | `boolean` | `true` if the HTTP status is 2xx. |
-| `status` | `number` | HTTP status code. |
-| `headers` | `table` | Response headers. |
-| `data` | `any` | Parsed JSON response body. |
+| Operation | `value` |
+| --- | --- |
+| `load` / `create` / `update` / `remove` | the entity record (a `table`) |
+| `list` | an array (`table`) of entity records |
 
-On error, `ok` is `false` and `err` contains the error value.
+Check `err` first (it is non-`nil` on failure), then use `value`:
+
+    local metadata, err = client:Metadata():load({ id = "example_id" })
+    if err then error(err) end
+    -- metadata is the loaded record
+
+Only `direct()` returns a response envelope — a `table` with `ok`,
+`status`, `headers`, and `data` keys.
 
 ### Entities
 
@@ -239,7 +244,7 @@ API path: `/explore/v2.1/catalog/datasets/vornamen-der-neugeborenen-kanton-stgal
 
 ### Metadata
 
-Create an instance: `const metadata = client.metadata`
+Create an instance: `local metadata = client:Metadata(nil)`
 
 #### Operations
 
@@ -258,14 +263,14 @@ Create an instance: `const metadata = client.metadata`
 
 #### Example: List
 
-```ts
-const metadatas = await client.metadata.list()
+```lua
+local metadatas, err = client:Metadata():list()
 ```
 
 
 ### Record
 
-Create an instance: `const record = client.record`
+Create an instance: `local record = client:Record(nil)`
 
 #### Operations
 
@@ -286,8 +291,8 @@ Create an instance: `const record = client.record`
 
 #### Example: List
 
-```ts
-const records = await client.record.list()
+```lua
+local records, err = client:Record():list()
 ```
 
 
@@ -362,7 +367,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local metadata = client:metadata()
+local metadata = client:Metadata()
 metadata:load({ id = "example_id" })
 
 -- metadata:data_get() now returns the loaded metadata data

@@ -84,7 +84,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## MetadataEntity
 
 ```python
-metadata = client.metadata
+metadata = client.Metadata()
 ```
 
 ### Fields
@@ -103,7 +103,9 @@ metadata = client.metadata
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.metadata.list({})
+results = client.Metadata().list({})
+for metadata in results:
+    print(metadata)
 ```
 
 ### Common Methods
@@ -138,7 +140,7 @@ Return the entity name.
 ## RecordEntity
 
 ```python
-record = client.record
+record = client.Record()
 ```
 
 ### Fields
@@ -159,7 +161,9 @@ record = client.record
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.record.list({})
+results = client.Record().list({})
+for record in results:
+    print(record)
 ```
 
 ### Common Methods

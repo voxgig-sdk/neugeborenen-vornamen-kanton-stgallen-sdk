@@ -205,28 +205,14 @@ class NeugeborenenVornamenKantonStgallenSDK {
 
 
 
-  _metadata?: MetadataEntity
-
-  // Idiomatic facade: `client.metadata.list()` / `client.metadata.load({ id })`.
-  get metadata(): MetadataEntity {
-    return (this._metadata ??= new MetadataEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.metadata` instead. */
+  // Entity access: `client.Metadata().list()` / `client.Metadata().load({ id })`.
   Metadata(data?: any) {
     const self = this
     return new MetadataEntity(self,data)
   }
 
 
-  _record?: RecordEntity
-
-  // Idiomatic facade: `client.record.list()` / `client.record.load({ id })`.
-  get record(): RecordEntity {
-    return (this._record ??= new RecordEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.record` instead. */
+  // Entity access: `client.Record().list()` / `client.Record().load({ id })`.
   Record(data?: any) {
     const self = this
     return new RecordEntity(self,data)

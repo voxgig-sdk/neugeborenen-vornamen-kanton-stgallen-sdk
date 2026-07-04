@@ -220,41 +220,21 @@ class NeugeborenenVornamenKantonStgallenSDK:
         }
 
 
-    @property
-    def metadata(self):
-        """Idiomatic facade: client.metadata.list() / client.metadata.load({"id": ...})."""
-        from entity.metadata_entity import MetadataEntity
-        cached = getattr(self, "_metadata", None)
-        if cached is None:
-            cached = MetadataEntity(self, None)
-            self._metadata = cached
-        return cached
-
-    def Metadata(self, data=None):
-        # Deprecated: use client.metadata instead.
+    def Metadata(self, data=None) -> "MetadataEntity":
+        """Entity factory: client.Metadata().list({}) / client.Metadata().load({"id": ...})."""
         from entity.metadata_entity import MetadataEntity
         return MetadataEntity(self, data)
 
 
-    @property
-    def record(self):
-        """Idiomatic facade: client.record.list() / client.record.load({"id": ...})."""
-        from entity.record_entity import RecordEntity
-        cached = getattr(self, "_record", None)
-        if cached is None:
-            cached = RecordEntity(self, None)
-            self._record = cached
-        return cached
-
-    def Record(self, data=None):
-        # Deprecated: use client.record instead.
+    def Record(self, data=None) -> "RecordEntity":
+        """Entity factory: client.Record().list({}) / client.Record().load({"id": ...})."""
         from entity.record_entity import RecordEntity
         return RecordEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "NeugeborenenVornamenKantonStgallenSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -274,3 +254,10 @@ class NeugeborenenVornamenKantonStgallenSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.metadata_entity import MetadataEntity
+    from entity.record_entity import RecordEntity

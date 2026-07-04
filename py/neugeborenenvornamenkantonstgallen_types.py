@@ -4,45 +4,45 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class Metadata:
-    description: Optional[str] = None
-    label: Optional[str] = None
-    name: Optional[str] = None
-    type: Optional[str] = None
+class Metadata(TypedDict, total=False):
+    description: str
+    label: str
+    name: str
+    type: str
 
 
-@dataclass
-class MetadataListMatch:
-    description: Optional[str] = None
-    label: Optional[str] = None
-    name: Optional[str] = None
-    type: Optional[str] = None
+class MetadataListMatch(TypedDict, total=False):
+    description: str
+    label: str
+    name: str
+    type: str
 
 
-@dataclass
-class Record:
-    anzahl: Optional[int] = None
-    geschlecht: Optional[str] = None
-    geschlecht_label: Optional[str] = None
-    id: Optional[str] = None
-    jahr: Optional[int] = None
-    vorname: Optional[str] = None
+class Record(TypedDict, total=False):
+    anzahl: int
+    geschlecht: str
+    geschlecht_label: str
+    id: str
+    jahr: int
+    vorname: str
 
 
-@dataclass
-class RecordListMatch:
-    anzahl: Optional[int] = None
-    geschlecht: Optional[str] = None
-    geschlecht_label: Optional[str] = None
-    id: Optional[str] = None
-    jahr: Optional[int] = None
-    vorname: Optional[str] = None
-
+class RecordListMatch(TypedDict, total=False):
+    anzahl: int
+    geschlecht: str
+    geschlecht_label: str
+    id: str
+    jahr: int
+    vorname: str

@@ -89,7 +89,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## MetadataEntity
 
 ```php
-$metadata = $client->metadata();
+$metadata = $client->Metadata();
 ```
 
 ### Fields
@@ -108,7 +108,7 @@ $metadata = $client->metadata();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->metadata()->list([]);
+$results = $client->Metadata()->list([]);
 ```
 
 ### Common Methods
@@ -144,7 +144,7 @@ Return the entity name.
 ## RecordEntity
 
 ```php
-$record = $client->record();
+$record = $client->Record();
 ```
 
 ### Fields
@@ -165,7 +165,7 @@ $record = $client->record();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->record()->list([]);
+$results = $client->Record()->list([]);
 ```
 
 ### Common Methods

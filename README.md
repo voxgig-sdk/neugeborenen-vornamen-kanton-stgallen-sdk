@@ -26,9 +26,11 @@ import { NeugeborenenVornamenKantonStgallenSDK } from '@voxgig-sdk/neugeborenen-
 
 const client = new NeugeborenenVornamenKantonStgallenSDK()
 
-// List all metadatas
-const metadatas = await client.metadata.list()
-console.log(metadatas.data)
+// List all metadatas (returns Metadata[])
+const metadatas = await client.Metadata().list()
+for (const metadata of metadatas) {
+  console.log(metadata)
+}
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -84,9 +86,10 @@ from neugeborenenvornamenkantonstgallen_sdk import NeugeborenenVornamenKantonStg
 
 client = NeugeborenenVornamenKantonStgallenSDK()
 
-# List all metadatas
-metadatas = client.metadata.list()
-print(metadatas)
+# List all metadatas (returns a list, raises on error)
+metadatas = client.Metadata().list({})
+for metadata in metadatas:
+    print(metadata)
 ```
 
 ### PHP
@@ -97,8 +100,8 @@ require_once 'neugeborenenvornamenkantonstgallen_sdk.php';
 
 $client = new NeugeborenenVornamenKantonStgallenSDK();
 
-// List all metadatas (throws on error)
-$metadatas = $client->metadata()->list();
+// List all metadatas (returns an array; throws on error)
+$metadatas = $client->Metadata()->list();
 print_r($metadatas);
 ```
 
@@ -121,8 +124,8 @@ require_relative "NeugeborenenVornamenKantonStgallen_sdk"
 
 client = NeugeborenenVornamenKantonStgallenSDK.new
 
-# List all metadatas
-metadatas = client.metadata.list
+# List all metadatas (returns an Array; raises on error)
+metadatas = client.Metadata.list
 puts metadatas
 ```
 
@@ -134,7 +137,7 @@ local sdk = require("neugeborenen-vornamen-kanton-stgallen_sdk")
 local client = sdk.new()
 
 -- List all metadatas
-local metadatas, err = client:metadata():list()
+local metadatas, err = client:Metadata():list()
 print(metadatas)
 ```
 
@@ -147,22 +150,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = NeugeborenenVornamenKantonStgallenSDK.test()
-const result = await client.metadata.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const metadata = await client.Metadata().load({ id: 'test01' })
+// metadata is a bare Metadata populated with mock data
+console.log(metadata)
 ```
 
 ### Python
 
 ```python
 client = NeugeborenenVornamenKantonStgallenSDK.test()
-result = client.metadata.load({"id": "test01"})
+metadata = client.Metadata().load({"id": "test01"})
+print(metadata)
 ```
 
 ### PHP
 
 ```php
-$client = NeugeborenenVornamenKantonStgallenSDK::test();
-$result = $client->metadata()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = NeugeborenenVornamenKantonStgallenSDK::test([
+    "entity" => ["metadata" => ["test01" => ["id" => "test01"]]],
+]);
+$metadata = $client->Metadata()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -177,15 +185,18 @@ result, err := client.Metadata(nil).Load(
 ### Ruby
 
 ```ruby
-client = NeugeborenenVornamenKantonStgallenSDK.test
-result = client.metadata.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = NeugeborenenVornamenKantonStgallenSDK.test({
+  "entity" => { "metadata" => { "test01" => { "id" => "test01" } } },
+})
+metadata = client.Metadata.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:metadata():load({ id = "test01" })
+local result, err = client:Metadata():load({ id = "test01" })
 ```
 
 ## How it works
@@ -233,6 +244,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

@@ -29,18 +29,16 @@ require_once 'neugeborenenvornamenkantonstgallen_sdk.php';
 $client = new NeugeborenenVornamenKantonStgallenSDK();
 ```
 
-### 2. List metadatas
+### 2. List metadata records
 
 ```php
 try {
-    $result = $client->metadata()->list();
-    if (is_array($result)) {
-        foreach ($result as $item) {
-            $d = $item->data_get();
-            echo $d["id"] . " " . $d["name"] . "\n";
-        }
+    // list() returns an array of Metadata records — iterate directly.
+    $metadatas = $client->Metadata()->list();
+    foreach ($metadatas as $item) {
+        echo $item["id"] . " " . $item["name"] . "\n";
     }
-} catch (\Exception $err) {
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -86,13 +84,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = NeugeborenenVornamenKantonStgallenSDK::test();
+$client = NeugeborenenVornamenKantonStgallenSDK::test([
+    "entity" => ["metadata" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->metadata()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$metadata = $client->Metadata()->load(["id" => "test01"]);
+print_r($metadata);
 ```
 
 ### Use a custom fetch function
@@ -247,7 +249,7 @@ API path: `/explore/v2.1/catalog/datasets/vornamen-der-neugeborenen-kanton-stgal
 
 ### Metadata
 
-Create an instance: `const metadata = client.metadata`
+Create an instance: `$metadata = $client->Metadata();`
 
 #### Operations
 
@@ -266,14 +268,15 @@ Create an instance: `const metadata = client.metadata`
 
 #### Example: List
 
-```ts
-const metadatas = await client.metadata.list()
+```php
+// list() returns an array of Metadata records (throws on error).
+$metadatas = $client->Metadata()->list();
 ```
 
 
 ### Record
 
-Create an instance: `const record = client.record`
+Create an instance: `$record = $client->Record();`
 
 #### Operations
 
@@ -294,8 +297,9 @@ Create an instance: `const record = client.record`
 
 #### Example: List
 
-```ts
-const records = await client.record.list()
+```php
+// list() returns an array of Record records (throws on error).
+$records = $client->Record()->list();
 ```
 
 
@@ -370,7 +374,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$metadata = $client->metadata();
+$metadata = $client->Metadata();
 $metadata->load(["id" => "example_id"]);
 
 // $metadata->dataGet() now returns the loaded metadata data

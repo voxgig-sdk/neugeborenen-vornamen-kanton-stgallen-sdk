@@ -90,7 +90,7 @@ same parameters as `direct()`. Raises on error.
 ## MetadataEntity
 
 ```ruby
-metadata = client.metadata
+metadata = client.Metadata
 ```
 
 ### Fields
@@ -109,7 +109,7 @@ metadata = client.metadata
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.metadata.list(nil)
+results = client.Metadata.list(nil)
 ```
 
 ### Common Methods
@@ -145,7 +145,7 @@ Return the entity name.
 ## RecordEntity
 
 ```ruby
-record = client.record
+record = client.Record
 ```
 
 ### Fields
@@ -166,7 +166,7 @@ record = client.record
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.record.list(nil)
+results = client.Record.list(nil)
 ```
 
 ### Common Methods

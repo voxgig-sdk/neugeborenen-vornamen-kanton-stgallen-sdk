@@ -233,10 +233,10 @@ class NeugeborenenVornamenKantonStgallenSDK
 
     private $_metadata = null;
 
-    // Idiomatic facade: $client->metadata()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Metadata() (PHP method
-    // names are case-insensitive).
-    public function metadata($data = null)
+    // Canonical facade: $client->Metadata()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->metadata()
+    // resolves here too.
+    public function Metadata($data = null)
     {
         require_once __DIR__ . '/entity/metadata_entity.php';
         if ($data === null) {
@@ -251,10 +251,10 @@ class NeugeborenenVornamenKantonStgallenSDK
 
     private $_record = null;
 
-    // Idiomatic facade: $client->record()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Record() (PHP method
-    // names are case-insensitive).
-    public function record($data = null)
+    // Canonical facade: $client->Record()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->record()
+    // resolves here too.
+    public function Record($data = null)
     {
         require_once __DIR__ . '/entity/record_entity.php';
         if ($data === null) {
