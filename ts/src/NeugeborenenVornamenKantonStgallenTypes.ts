@@ -12,7 +12,12 @@ export interface Metadata {
   type?: string
 }
 
-export type MetadataListMatch = Partial<Metadata>
+export interface MetadataListMatch {
+  description?: string
+  label?: string
+  name?: string
+  type?: string
+}
 
 export interface Record {
   anzahl?: number
@@ -23,5 +28,12 @@ export interface Record {
   vorname?: string
 }
 
-export type RecordListMatch = Partial<Record>
+export interface RecordListMatch {
+  anzahl?: number
+  geschlecht?: string
+  geschlecht_label?: string
+  id?: string
+  jahr?: number
+  vorname?: string
+}
 

@@ -21,7 +21,7 @@ class Metadata
     public ?string $type = null;
 }
 
-/** Match filter for Metadata#list (any subset of Metadata fields). */
+/** Request payload for Metadata#list. */
 class MetadataListMatch
 {
     public ?string $description = null;
@@ -41,7 +41,7 @@ class Record
     public ?string $vorname = null;
 }
 
-/** Match filter for Record#list (any subset of Record fields). */
+/** Request payload for Record#list. */
 class RecordListMatch
 {
     public ?int $anzahl = null;

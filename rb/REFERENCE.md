@@ -8,7 +8,7 @@ Complete API reference for the NeugeborenenVornamenKantonStgallen Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'neugeborenen-vornamen-kanton-stgallen_sdk'
+require_relative 'NeugeborenenVornamenKantonStgallen_sdk'
 
 client = NeugeborenenVornamenKantonStgallenSDK.new(options)
 ```
@@ -97,19 +97,19 @@ metadata = client.Metadata
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `label` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `description` | `String` | No |  |
+| `label` | `String` | No |  |
+| `name` | `String` | No |  |
+| `type` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Metadata.list(nil)
+results = client.Metadata.list
 ```
 
 ### Common Methods
@@ -152,21 +152,21 @@ record = client.Record
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `anzahl` | ``$INTEGER`` | No |  |
-| `geschlecht` | ``$STRING`` | No |  |
-| `geschlecht_label` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `jahr` | ``$INTEGER`` | No |  |
-| `vorname` | ``$STRING`` | No |  |
+| `anzahl` | `Integer` | No |  |
+| `geschlecht` | `String` | No |  |
+| `geschlecht_label` | `String` | No |  |
+| `id` | `String` | No |  |
+| `jahr` | `Integer` | No |  |
+| `vorname` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Record.list(nil)
+results = client.Record.list
 ```
 
 ### Common Methods

@@ -221,13 +221,13 @@ class NeugeborenenVornamenKantonStgallenSDK:
 
 
     def Metadata(self, data=None) -> "MetadataEntity":
-        """Entity factory: client.Metadata().list({}) / client.Metadata().load({"id": ...})."""
+        """Entity factory: client.Metadata().list() / client.Metadata().load({"id": ...})."""
         from entity.metadata_entity import MetadataEntity
         return MetadataEntity(self, data)
 
 
     def Record(self, data=None) -> "RecordEntity":
-        """Entity factory: client.Record().list({}) / client.Record().load({"id": ...})."""
+        """Entity factory: client.Record().list() / client.Record().load({"id": ...})."""
         from entity.record_entity import RecordEntity
         return RecordEntity(self, data)
 

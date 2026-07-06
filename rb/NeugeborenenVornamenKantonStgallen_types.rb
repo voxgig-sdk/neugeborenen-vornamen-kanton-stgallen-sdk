@@ -29,7 +29,7 @@ Metadata = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Metadata#list (any subset of Metadata fields).
+# Request payload for Metadata#list.
 #
 # @!attribute [rw] description
 #   @return [String, nil]
@@ -79,7 +79,7 @@ Record = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Record#list (any subset of Record fields).
+# Request payload for Record#list.
 #
 # @!attribute [rw] anzahl
 #   @return [Integer, nil]

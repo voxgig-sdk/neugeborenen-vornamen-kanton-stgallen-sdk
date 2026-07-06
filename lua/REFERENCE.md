@@ -94,10 +94,10 @@ local metadata = client:Metadata(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `label` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `description` | `string` | No |  |
+| `label` | `string` | No |  |
+| `name` | `string` | No |  |
+| `type` | `string` | No |  |
 
 ### Operations
 
@@ -149,12 +149,12 @@ local record = client:Record(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `anzahl` | ``$INTEGER`` | No |  |
-| `geschlecht` | ``$STRING`` | No |  |
-| `geschlecht_label` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `jahr` | ``$INTEGER`` | No |  |
-| `vorname` | ``$STRING`` | No |  |
+| `anzahl` | `number` | No |  |
+| `geschlecht` | `string` | No |  |
+| `geschlecht_label` | `string` | No |  |
+| `id` | `string` | No |  |
+| `jahr` | `number` | No |  |
+| `vorname` | `string` | No |  |
 
 ### Operations
 

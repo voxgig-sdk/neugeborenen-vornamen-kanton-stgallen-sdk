@@ -13,6 +13,10 @@
 ---@field type? string
 
 ---@class MetadataListMatch
+---@field description? string
+---@field label? string
+---@field name? string
+---@field type? string
 
 ---@class Record
 ---@field anzahl? number
@@ -23,6 +27,12 @@
 ---@field vorname? string
 
 ---@class RecordListMatch
+---@field anzahl? number
+---@field geschlecht? string
+---@field geschlecht_label? string
+---@field id? string
+---@field jahr? number
+---@field vorname? string
 
 local M = {}
 

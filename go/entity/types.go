@@ -16,8 +16,7 @@ type Metadata struct {
 	Type *string `json:"type,omitempty"`
 }
 
-// MetadataListMatch mirrors the metadata fields as an all-optional match
-// filter (Go analog of Partial<Metadata>).
+// MetadataListMatch is the typed request payload for Metadata.ListTyped.
 type MetadataListMatch struct {
 	Description *string `json:"description,omitempty"`
 	Label *string `json:"label,omitempty"`
@@ -35,8 +34,7 @@ type Record struct {
 	Vorname *string `json:"vorname,omitempty"`
 }
 
-// RecordListMatch mirrors the record fields as an all-optional match
-// filter (Go analog of Partial<Record>).
+// RecordListMatch is the typed request payload for Record.ListTyped.
 type RecordListMatch struct {
 	Anzahl *int `json:"anzahl,omitempty"`
 	Geschlecht *string `json:"geschlecht,omitempty"`

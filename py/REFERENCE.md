@@ -8,7 +8,7 @@ Complete API reference for the NeugeborenenVornamenKantonStgallen Python SDK.
 ### Constructor
 
 ```python
-from neugeborenen-vornamen-kanton-stgallen_sdk import NeugeborenenVornamenKantonStgallenSDK
+from neugeborenenvornamenkantonstgallen_sdk import NeugeborenenVornamenKantonStgallenSDK
 
 client = NeugeborenenVornamenKantonStgallenSDK(options)
 ```
@@ -91,19 +91,19 @@ metadata = client.Metadata()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `label` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `description` | `str` | No |  |
+| `label` | `str` | No |  |
+| `name` | `str` | No |  |
+| `type` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Metadata().list({})
+results = client.Metadata().list()
 for metadata in results:
     print(metadata)
 ```
@@ -147,21 +147,21 @@ record = client.Record()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `anzahl` | ``$INTEGER`` | No |  |
-| `geschlecht` | ``$STRING`` | No |  |
-| `geschlecht_label` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `jahr` | ``$INTEGER`` | No |  |
-| `vorname` | ``$STRING`` | No |  |
+| `anzahl` | `int` | No |  |
+| `geschlecht` | `str` | No |  |
+| `geschlecht_label` | `str` | No |  |
+| `id` | `str` | No |  |
+| `jahr` | `int` | No |  |
+| `vorname` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Record().list({})
+results = client.Record().list()
 for record in results:
     print(record)
 ```

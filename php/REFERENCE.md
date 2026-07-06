@@ -8,7 +8,7 @@ Complete API reference for the NeugeborenenVornamenKantonStgallen PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/neugeborenen-vornamen-kanton-stgallen_sdk.php';
+require_once __DIR__ . '/neugeborenenvornamenkantonstgallen_sdk.php';
 
 $client = new NeugeborenenVornamenKantonStgallenSDK($options);
 ```
@@ -49,11 +49,11 @@ Create a new `MetadataEntity` instance. Pass `null` for no initial data.
 
 Create a new `RecordEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): NeugeborenenVornamenKantonStgallenUtility`
 
 Return a copy of the SDK utility object.
 
@@ -96,36 +96,36 @@ $metadata = $client->Metadata();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `label` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `description` | `string` | No |  |
+| `label` | `string` | No |  |
+| `name` | `string` | No |  |
+| `type` | `string` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Metadata()->list([]);
+$results = $client->Metadata()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -134,7 +134,7 @@ Set the entity match criteria.
 Create a new `MetadataEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -151,38 +151,38 @@ $record = $client->Record();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `anzahl` | ``$INTEGER`` | No |  |
-| `geschlecht` | ``$STRING`` | No |  |
-| `geschlecht_label` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `jahr` | ``$INTEGER`` | No |  |
-| `vorname` | ``$STRING`` | No |  |
+| `anzahl` | `int` | No |  |
+| `geschlecht` | `string` | No |  |
+| `geschlecht_label` | `string` | No |  |
+| `id` | `string` | No |  |
+| `jahr` | `int` | No |  |
+| `vorname` | `string` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Record()->list([]);
+$results = $client->Record()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -191,7 +191,7 @@ Set the entity match criteria.
 Create a new `RecordEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

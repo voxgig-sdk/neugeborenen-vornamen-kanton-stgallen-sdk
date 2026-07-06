@@ -6,6 +6,21 @@ This is an unofficial SDK for the Neugeborenen Vornamen Kanton St.Gallen public 
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
 
+## Entities, not endpoints
+
+This SDK exposes the API as a small set of **semantic entities** — Metadata and Record — that you
+call directly, instead of assembling URL paths and query strings. Entities are
+**Capitalised** to mark them as the primary surface, each with the operations they
+support (`list`):
+
+```ts
+const client = new NeugeborenenVornamenKantonStgallenSDK()
+const items = await client.Metadata().list()
+```
+
+Thinking in entities keeps the mental model small — for people and AI agents alike —
+rather than reasoning about raw HTTP routes and query parameters.
+
 ## Packages
 
 | Language | Package | Install |
@@ -74,8 +89,8 @@ The API exposes 2 entities:
 | **Metadata** | The Metadata entity (list). | `/explore/v2.1/catalog/datasets/vornamen-der-neugeborenen-kanton-stgallen-seit-1987` |
 | **Record** | The Record entity (list). | `/explore/v2.1/catalog/datasets/vornamen-der-neugeborenen-kanton-stgallen-seit-1987/records` |
 
-Each entity supports the following operations where available: **load**,
-**list**, **create**, **update**, and **remove**.
+The operations available across these entities are **list** — see each entity's
+own list above for exactly which it supports.
 
 ## Quickstart in other languages
 
@@ -87,7 +102,7 @@ from neugeborenenvornamenkantonstgallen_sdk import NeugeborenenVornamenKantonStg
 client = NeugeborenenVornamenKantonStgallenSDK()
 
 # List all metadatas (returns a list, raises on error)
-metadatas = client.Metadata().list({})
+metadatas = client.Metadata().list()
 for metadata in metadatas:
     print(metadata)
 ```
@@ -150,7 +165,7 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = NeugeborenenVornamenKantonStgallenSDK.test()
-const metadata = await client.Metadata().load({ id: 'test01' })
+const metadata = await client.Metadata().list()
 // metadata is a bare Metadata populated with mock data
 console.log(metadata)
 ```
@@ -159,7 +174,7 @@ console.log(metadata)
 
 ```python
 client = NeugeborenenVornamenKantonStgallenSDK.test()
-metadata = client.Metadata().load({"id": "test01"})
+metadata = client.Metadata().list()
 print(metadata)
 ```
 
@@ -168,17 +183,17 @@ print(metadata)
 ```php
 // Seed fixture data so offline calls resolve without a live server.
 $client = NeugeborenenVornamenKantonStgallenSDK::test([
-    "entity" => ["metadata" => ["test01" => ["id" => "test01"]]],
+    "entity" => ["metadata" => ["test01" => []]],
 ]);
-$metadata = $client->Metadata()->load(["id" => "test01"]);
+$metadata = $client->Metadata()->list();
 ```
 
 ### Golang
 
 ```go
 client := sdk.Test()
-result, err := client.Metadata(nil).Load(
-    map[string]any{"id": "test01"}, nil,
+result, err := client.Metadata(nil).List(
+    nil, nil,
 )
 ```
 
@@ -187,41 +202,19 @@ result, err := client.Metadata(nil).Load(
 ```ruby
 # Seed fixture data so offline calls resolve without a live server.
 client = NeugeborenenVornamenKantonStgallenSDK.test({
-  "entity" => { "metadata" => { "test01" => { "id" => "test01" } } },
+  "entity" => { "metadata" => { "test01" => {} } },
 })
-metadata = client.Metadata.load({ "id" => "test01" })
+metadata = client.Metadata.list()
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:Metadata():load({ id = "test01" })
+local result, err = client:Metadata():list()
 ```
 
-## How it works
-
-Every SDK call runs the same five-stage pipeline:
-
-1. **Point** — resolve the API endpoint from the operation definition.
-2. **Spec** — build the HTTP specification (URL, method, headers, body).
-3. **Request** — send the HTTP request.
-4. **Response** — receive and parse the response.
-5. **Result** — extract the result data for the caller.
-
-A feature hook fires at each stage (e.g. `PrePoint`, `PreSpec`,
-`PreRequest`), so features can inspect or modify the pipeline without
-forking the SDK.
-
-### Features
-
-| Feature | Purpose |
-| --- | --- |
-| **TestFeature** | In-memory mock transport for testing without a live server |
-
-Pass custom features via the `extend` option at construction time.
-
-### Direct and Prepare
+## Direct and prepare
 
 For endpoints the entity model doesn't cover, use the low-level methods:
 
@@ -294,6 +287,31 @@ local result, err = client:direct({
   params = { id = "example" },
 })
 ```
+
+## Advanced
+
+> Everyday use only needs the sections above. This explains the internals
+> behind every call — relevant when writing custom features.
+
+Every SDK call runs the same five-stage pipeline:
+
+1. **Point** — resolve the API endpoint from the operation definition.
+2. **Spec** — build the HTTP specification (URL, method, headers, body).
+3. **Request** — send the HTTP request.
+4. **Response** — receive and parse the response.
+5. **Result** — extract the result data for the caller.
+
+A feature hook fires at each stage (e.g. `PrePoint`, `PreSpec`,
+`PreRequest`), so features can inspect or modify the pipeline without
+forking the SDK.
+
+### Features
+
+| Feature | Purpose |
+| --- | --- |
+| **TestFeature** | In-memory mock transport for testing without a live server |
+
+Pass custom features via the `extend` option at construction time.
 
 ## Per-language documentation
 
