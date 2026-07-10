@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -420,15 +417,18 @@
           "url": "https://daten.sg.ch"
         },
         "description": "Provides dataset of newborn first names in the Canton of St.Gallen since 1987, based on official registry data from the Federal Office for Civil Status. Names with less than five occurrences per year are grouped under 'other names' for privacy reasons. The dataset contains first names of newborns in Canton St.Gallen (mother's place of residence). For multiple registered first names, the first name listed in the official Infostar register of the Federal Office for Civil Status (EAZW) is evaluated. Hyphenated names are counted as a single name (e.g. Anne-Sophie), similarly spelled names (e.g. Jannik and Jannick) as two different names. Accents (e.g. ï or é) are not considered.",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "St.Gallen Open Data API",
             "url": "https://daten.sg.ch/api"
           }
         ],
+        "summary": "Provides dataset of newborn first names in the Canton of St.Gallen since 1987, based on official registry data from the Federal Office for Civil Status.",
         "termsOfService": "https://daten.sg.ch",
         "title": "Neugeborenen Vornamen Kanton St.Gallen",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://daten.sg.ch"
       },
       "option": {},
       "target": {
@@ -481,6 +481,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -531,6 +534,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
