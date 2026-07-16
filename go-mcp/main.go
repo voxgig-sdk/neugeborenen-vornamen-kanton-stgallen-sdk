@@ -37,7 +37,20 @@ func main() {
 	addr := flag.String("addr", ":8080", "listen address for http transport")
 	flag.Parse()
 
-	client := sdk.NewNeugeborenenVornamenKantonStgallenSDK(nil)
+	// Configure from the environment: NEUGEBORENEN_VORNAMEN_KANTON_STGALLEN_APIKEY carries the API key and
+	// NEUGEBORENEN_VORNAMEN_KANTON_STGALLEN_BASE optionally overrides the API base URL (e.g. production).
+	// Both injectable by a secrets vault. Unset -> nil config defaults.
+	var opts map[string]any
+	if apikey := os.Getenv("NEUGEBORENEN_VORNAMEN_KANTON_STGALLEN_APIKEY"); apikey != "" {
+		opts = map[string]any{"apikey": apikey}
+	}
+	if base := os.Getenv("NEUGEBORENEN_VORNAMEN_KANTON_STGALLEN_BASE"); base != "" {
+		if opts == nil {
+			opts = map[string]any{}
+		}
+		opts["base"] = base
+	}
+	client := sdk.NewNeugeborenenVornamenKantonStgallenSDK(opts)
 	server := mcp.NewServer(
 		&mcp.Implementation{
 			Name:    "neugeborenen-vornamen-kanton-stgallen",
