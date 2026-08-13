@@ -61,11 +61,11 @@ function metadata_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_METADATA_ENTID"] = {},
-    ["NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_LIVE"] = "FALSE",
+    ["NEUGEBORENEN_VORNAMEN_KANTON_STGALLEN_TEST_METADATA_ENTID"] = {},
+    ["NEUGEBORENEN_VORNAMEN_KANTON_STGALLEN_TEST_LIVE"] = "FALSE",
   })
 
-  local live = env["NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_LIVE"] == "TRUE"
+  local live = env["NEUGEBORENEN_VORNAMEN_KANTON_STGALLEN_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {

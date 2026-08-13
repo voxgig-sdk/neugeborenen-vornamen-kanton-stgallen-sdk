@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import NeugeborenenVornamenKantonStgallenSDK
-from core.error import NeugeborenenVornamenKantonStgallenError
-from core.result import NeugeborenenVornamenKantonStgallenResult
-from core.response import NeugeborenenVornamenKantonStgallenResponse
-from core.spec import NeugeborenenVornamenKantonStgallenSpec
-from feature.base_feature import NeugeborenenVornamenKantonStgallenBaseFeature
+from projectname_sdk.core.error import NeugeborenenVornamenKantonStgallenError
+from projectname_sdk.core.result import NeugeborenenVornamenKantonStgallenResult
+from projectname_sdk.core.response import NeugeborenenVornamenKantonStgallenResponse
+from projectname_sdk.core.spec import NeugeborenenVornamenKantonStgallenSpec
+from projectname_sdk.feature.base_feature import NeugeborenenVornamenKantonStgallenBaseFeature
 
 
 def _client():

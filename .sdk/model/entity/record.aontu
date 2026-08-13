@@ -154,7 +154,7 @@ main: kit: entity: record: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.results`"
           }
         }
       ]

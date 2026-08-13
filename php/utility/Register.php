@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ NeugeborenenVornamenKantonStgallenUtility::setRegistrar(function (NeugeborenenVo
     $u->prepare_params = [NeugeborenenVornamenKantonStgallenPrepareParams::class, 'call'];
     $u->prepare_path = [NeugeborenenVornamenKantonStgallenPreparePath::class, 'call'];
     $u->prepare_query = [NeugeborenenVornamenKantonStgallenPrepareQuery::class, 'call'];
+    $u->graphql_body = [NeugeborenenVornamenKantonStgallenGraphql::class, 'body'];
+    $u->graphql_errors = [NeugeborenenVornamenKantonStgallenGraphql::class, 'errors'];
     $u->result_basic = [NeugeborenenVornamenKantonStgallenResultBasic::class, 'call'];
     $u->result_body = [NeugeborenenVornamenKantonStgallenResultBody::class, 'call'];
     $u->result_headers = [NeugeborenenVornamenKantonStgallenResultHeaders::class, 'call'];

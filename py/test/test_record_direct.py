@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from neugeborenenvornamenkantonstgallen_sdk.utility.voxgig_struct import voxgig_struct as vs
 from neugeborenenvornamenkantonstgallen_sdk import NeugeborenenVornamenKantonStgallenSDK
-from core import helpers
+from neugeborenenvornamenkantonstgallen_sdk.core import helpers
 from test import runner
 
 
@@ -58,11 +58,11 @@ def _record_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_RECORD_ENTID": {},
-        "NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_LIVE": "FALSE",
+        "NEUGEBORENEN_VORNAMEN_KANTON_STGALLEN_TEST_RECORD_ENTID": {},
+        "NEUGEBORENEN_VORNAMEN_KANTON_STGALLEN_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_LIVE") == "TRUE"
+    live = env.get("NEUGEBORENEN_VORNAMEN_KANTON_STGALLEN_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

@@ -14,6 +14,7 @@ guide: {
   entity: record: {
     path: "/explore/v2.1/catalog/datasets/vornamen-der-neugeborenen-kanton-stgallen-seit-1987/records": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
     }
   }
 

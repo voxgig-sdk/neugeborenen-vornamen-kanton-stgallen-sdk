@@ -219,9 +219,9 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local metadata, err = client:Metadata():load()
+    local metadata, err = client:Metadata():list()
     if err then error(err) end
-    -- metadata is the loaded record
+    -- metadata is the record list
 
 Only `direct()` returns a response envelope — a `table` with `ok`,
 `status`, `headers`, and `data` keys.

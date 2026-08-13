@@ -23,8 +23,8 @@ module NeugeborenenVornamenKantonStgallenTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_LIVE")
-    override = getenv("NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_OVERRIDE")
+    live = getenv("NEUGEBORENEN_VORNAMEN_KANTON_STGALLEN_TEST_LIVE")
+    override = getenv("NEUGEBORENEN_VORNAMEN_KANTON_STGALLEN_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module NeugeborenenVornamenKantonStgallenTestRunner
       end
     end
 
-    explain = getenv("NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_EXPLAIN")
-    m["NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("NEUGEBORENEN_VORNAMEN_KANTON_STGALLEN_TEST_EXPLAIN")
+    m["NEUGEBORENEN_VORNAMEN_KANTON_STGALLEN_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

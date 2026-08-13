@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = NeugeborenenVornamenKantonStgallenSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = NeugeborenenVornamenKantonStgallenSDK.test({
+  entity: {
+    metadata: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const metadatas = await client.Metadata().list()
-// metadatas is an array of bare Metadata records populated with mock data
+// metadatas is an array of Metadata entities, populated with mock data
+// — call metadatas[0].data() for the record itself
 console.log(metadatas)
 ```
 
@@ -110,7 +119,7 @@ import { NeugeborenenVornamenKantonStgallenSDK } from '@voxgig-sdk/neugeborenen-
 
 const client = new NeugeborenenVornamenKantonStgallenSDK()
 
-// List all metadatas (returns Metadata[])
+// List all metadatas (returns MetadataEntity[] — .data() for the record)
 const metadatas = await client.Metadata().list()
 for (const metadata of metadatas) {
   console.log(metadata)
@@ -344,6 +353,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://daten.sg.ch](https://daten.sg.ch)
 

@@ -37,7 +37,7 @@ class RecordEntity extends NeugeborenenVornamenKantonStgallenEntityBase<Record> 
 
 
 
-  async list(this: any, reqmatch?: RecordListMatch, ctrl?: Control): Promise<Record[]> {
+  async list(this: any, reqmatch?: RecordListMatch, ctrl?: Control): Promise<RecordEntity[]> {
 
     const utility = this._utility
 

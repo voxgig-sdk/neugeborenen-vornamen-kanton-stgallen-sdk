@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ NeugeborenenVornamenKantonStgallenUtility.registrar = ->(u) {
   u.prepare_params = NeugeborenenVornamenKantonStgallenUtilities::PrepareParams
   u.prepare_path = NeugeborenenVornamenKantonStgallenUtilities::PreparePath
   u.prepare_query = NeugeborenenVornamenKantonStgallenUtilities::PrepareQuery
+  u.graphql_body = NeugeborenenVornamenKantonStgallenUtilities::GraphqlBody
+  u.graphql_errors = NeugeborenenVornamenKantonStgallenUtilities::GraphqlErrors
   u.result_basic = NeugeborenenVornamenKantonStgallenUtilities::ResultBasic
   u.result_body = NeugeborenenVornamenKantonStgallenUtilities::ResultBody
   u.result_headers = NeugeborenenVornamenKantonStgallenUtilities::ResultHeaders

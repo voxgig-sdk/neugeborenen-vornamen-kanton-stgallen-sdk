@@ -35,7 +35,9 @@ const client = new NeugeborenenVornamenKantonStgallenSDK()
 
 ### 2. List metadata records
 
-`list()` resolves to an array of Metadata objects — iterate it directly:
+`list()` resolves to an array of Metadata ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const metadatas = await client.Metadata().list()
@@ -120,7 +122,8 @@ Create a mock client for unit testing — no server required:
 const client = NeugeborenenVornamenKantonStgallenSDK.test()
 
 const metadata = await client.Metadata().list()
-// metadata is a bare entity populated with mock response data
+// metadata is the entity, populated with mock response data
+// — call metadata.data() for the record itself
 console.log(metadata)
 ```
 

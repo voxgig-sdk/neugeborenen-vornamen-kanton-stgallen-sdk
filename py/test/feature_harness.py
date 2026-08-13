@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import NeugeborenenVornamenKantonStgallenControl
-from core.error import NeugeborenenVornamenKantonStgallenError
-from core.result import NeugeborenenVornamenKantonStgallenResult
-from core.spec import NeugeborenenVornamenKantonStgallenSpec
+from neugeborenenvornamenkantonstgallen_sdk.config import make_config
+from neugeborenenvornamenkantonstgallen_sdk.features import _make_feature
+from neugeborenenvornamenkantonstgallen_sdk.core.control import NeugeborenenVornamenKantonStgallenControl
+from neugeborenenvornamenkantonstgallen_sdk.core.error import NeugeborenenVornamenKantonStgallenError
+from neugeborenenvornamenkantonstgallen_sdk.core.result import NeugeborenenVornamenKantonStgallenResult
+from neugeborenenvornamenkantonstgallen_sdk.core.spec import NeugeborenenVornamenKantonStgallenSpec
 
 
 # True when this SDK was generated with the named feature.

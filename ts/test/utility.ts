@@ -62,8 +62,8 @@ function makeCtrl(explain: boolean) {
 // Overrides configuration values with environment variables if available
 function envOverride(m: Record<string, any>) {
   if (
-    'TRUE' === process.env.NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_LIVE ||
-    'TRUE' === process.env.NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_OVERRIDE
+    'TRUE' === process.env.NEUGEBORENEN_VORNAMEN_KANTON_STGALLEN_TEST_LIVE ||
+    'TRUE' === process.env.NEUGEBORENEN_VORNAMEN_KANTON_STGALLEN_TEST_OVERRIDE
   ) {
     Object.entries(m).map(n => {
       let envval = process.env[n[0]]
@@ -74,7 +74,7 @@ function envOverride(m: Record<string, any>) {
     })
   }
 
-  m.NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_EXPLAIN = process.env.NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_EXPLAIN || m.NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_EXPLAIN
+  m.NEUGEBORENEN_VORNAMEN_KANTON_STGALLEN_TEST_EXPLAIN = process.env.NEUGEBORENEN_VORNAMEN_KANTON_STGALLEN_TEST_EXPLAIN || m.NEUGEBORENEN_VORNAMEN_KANTON_STGALLEN_TEST_EXPLAIN
 
   return m
 }

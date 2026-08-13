@@ -26,8 +26,8 @@ import {
 describe('MetadataEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_LIVE=TRUE.
-  afterEach(liveDelay('NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when NEUGEBORENEN_VORNAMEN_KANTON_STGALLEN_TEST_LIVE=TRUE.
+  afterEach(liveDelay('NEUGEBORENEN_VORNAMEN_KANTON_STGALLEN_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = NeugeborenenVornamenKantonStgallenSDK.test()
@@ -63,7 +63,7 @@ describe('MetadataEntity', async () => {
     const metadata_ref01_ent = client.Metadata()
     const metadata_ref01_match: any = {}
 
-    const metadata_ref01_list = await metadata_ref01_ent.list(metadata_ref01_match)
+    const metadata_ref01_list = (await metadata_ref01_ent.list(metadata_ref01_match)).map((e: any) => e.data())
 
 
   })

@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# NeugeborenenVornamenKantonStgallen SDK exists test
 
 import pytest
 from neugeborenenvornamenkantonstgallen_sdk import NeugeborenenVornamenKantonStgallenSDK

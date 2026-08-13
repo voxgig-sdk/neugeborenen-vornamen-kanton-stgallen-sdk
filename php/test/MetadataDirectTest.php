@@ -66,11 +66,11 @@ function metadata_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_METADATA_ENTID" => [],
-        "NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_LIVE" => "FALSE",
+        "NEUGEBORENEN_VORNAMEN_KANTON_STGALLEN_TEST_METADATA_ENTID" => [],
+        "NEUGEBORENEN_VORNAMEN_KANTON_STGALLEN_TEST_LIVE" => "FALSE",
     ]);
 
-    $live = $env["NEUGEBORENENVORNAMENKANTONSTGALLEN_TEST_LIVE"] === "TRUE";
+    $live = $env["NEUGEBORENEN_VORNAMEN_KANTON_STGALLEN_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
