@@ -28,7 +28,7 @@ class NeugeborenenVornamenKantonStgallenSDK
     utility = NeugeborenenVornamenKantonStgallenUtility.new
     @_utility = utility
 
-    config = NeugeborenenVornamenKantonStgallenConfig.make_config
+    config = NeugeborenenVornamenKantonStgallenConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

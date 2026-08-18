@@ -40,7 +40,7 @@ class NeugeborenenVornamenKantonStgallenSDK
         $utility = new NeugeborenenVornamenKantonStgallenUtility();
         $this->_utility = $utility;
 
-        $config = NeugeborenenVornamenKantonStgallenConfig::make_config();
+        $config = NeugeborenenVornamenKantonStgallenConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,
