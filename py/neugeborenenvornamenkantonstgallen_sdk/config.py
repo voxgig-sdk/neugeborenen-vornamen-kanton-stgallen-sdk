@@ -28,6 +28,9 @@ def make_config():
     return {
         "main": {
             "name": "NeugeborenenVornamenKantonStgallen",
+            "slug": "neugeborenen-vornamen-kanton-stgallen",
+            "version": "0.0.1",
+            "target": "py",
         },
         "feature": {
             "test": {
@@ -51,18 +54,22 @@ def make_config():
         "fields": [
           {
             "name": "description",
+            "short": "Field description",
             "type": "`$STRING`",
           },
           {
             "name": "label",
+            "short": "Field label",
             "type": "`$STRING`",
           },
           {
             "name": "name",
+            "short": "Field name",
             "type": "`$STRING`",
           },
           {
             "name": "type",
+            "short": "Field data type",
             "type": "`$STRING`",
           },
         ],
@@ -101,26 +108,32 @@ def make_config():
         "fields": [
           {
             "name": "anzahl",
+            "short": "Number of occurrences",
             "type": "`$INTEGER`",
           },
           {
             "name": "geschlecht",
+            "short": "Gender code",
             "type": "`$STRING`",
           },
           {
             "name": "geschlecht_label",
+            "short": "Gender label (male/female)",
             "type": "`$STRING`",
           },
           {
             "name": "id",
+            "short": "Unique record identifier",
             "type": "`$STRING`",
           },
           {
             "name": "jahr",
+            "short": "Year of birth",
             "type": "`$INTEGER`",
           },
           {
             "name": "vorname",
+            "short": "First name",
             "type": "`$STRING`",
           },
         ],

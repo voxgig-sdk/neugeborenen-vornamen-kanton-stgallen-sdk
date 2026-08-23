@@ -36,24 +36,28 @@
               "active": true,
               "name": "description",
               "req": false,
+              "short": "Field description",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "label",
               "req": false,
+              "short": "Field label",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": false,
+              "short": "Field name",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "type",
               "req": false,
+              "short": "Field data type",
               "type": "`$STRING`"
             }
           ],
@@ -99,36 +103,42 @@
               "active": true,
               "name": "anzahl",
               "req": false,
+              "short": "Number of occurrences",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "geschlecht",
               "req": false,
+              "short": "Gender code",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "geschlecht_label",
               "req": false,
+              "short": "Gender label (male/female)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Unique record identifier",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "jahr",
               "req": false,
+              "short": "Year of birth",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "vorname",
               "req": false,
+              "short": "First name",
               "type": "`$STRING`"
             }
           ],

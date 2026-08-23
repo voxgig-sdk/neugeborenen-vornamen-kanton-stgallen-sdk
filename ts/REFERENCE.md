@@ -128,10 +128,10 @@ const metadata = client.Metadata()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `string` | No |  |
-| `label` | `string` | No |  |
-| `name` | `string` | No |  |
-| `type` | `string` | No |  |
+| `description` | `string` | No | Field description |
+| `label` | `string` | No | Field label |
+| `name` | `string` | No | Field name |
+| `type` | `string` | No | Field data type |
 
 ### Operations
 
@@ -181,12 +181,12 @@ const record = client.Record()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `anzahl` | `number` | No |  |
-| `geschlecht` | `string` | No |  |
-| `geschlecht_label` | `string` | No |  |
-| `id` | `string` | No |  |
-| `jahr` | `number` | No |  |
-| `vorname` | `string` | No |  |
+| `anzahl` | `number` | No | Number of occurrences |
+| `geschlecht` | `string` | No | Gender code |
+| `geschlecht_label` | `string` | No | Gender label (male/female) |
+| `id` | `string` | No | Unique record identifier |
+| `jahr` | `number` | No | Year of birth |
+| `vorname` | `string` | No | First name |
 
 ### Operations
 

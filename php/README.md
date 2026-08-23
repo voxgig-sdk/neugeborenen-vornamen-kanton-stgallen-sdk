@@ -248,10 +248,10 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `description` |  |
-| `label` |  |
-| `name` |  |
-| `type` |  |
+| `description` | Field description |
+| `label` | Field label |
+| `name` | Field name |
+| `type` | Field data type |
 
 Operations: List.
 
@@ -261,12 +261,12 @@ API path: `/explore/v2.1/catalog/datasets/vornamen-der-neugeborenen-kanton-stgal
 
 | Field | Description |
 | --- | --- |
-| `anzahl` |  |
-| `geschlecht` |  |
-| `geschlecht_label` |  |
-| `id` |  |
-| `jahr` |  |
-| `vorname` |  |
+| `anzahl` | Number of occurrences |
+| `geschlecht` | Gender code |
+| `geschlecht_label` | Gender label (male/female) |
+| `id` | Unique record identifier |
+| `jahr` | Year of birth |
+| `vorname` | First name |
 
 Operations: List.
 
@@ -291,10 +291,10 @@ Create an instance: `$metadata = $client->Metadata();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | `string` |  |
-| `label` | `string` |  |
-| `name` | `string` |  |
-| `type` | `string` |  |
+| `description` | `string` | Field description |
+| `label` | `string` | Field label |
+| `name` | `string` | Field name |
+| `type` | `string` | Field data type |
 
 #### Example: List
 
@@ -318,12 +318,12 @@ Create an instance: `$record = $client->Record();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `anzahl` | `int` |  |
-| `geschlecht` | `string` |  |
-| `geschlecht_label` | `string` |  |
-| `id` | `string` |  |
-| `jahr` | `int` |  |
-| `vorname` | `string` |  |
+| `anzahl` | `int` | Number of occurrences |
+| `geschlecht` | `string` | Gender code |
+| `geschlecht_label` | `string` | Gender label (male/female) |
+| `id` | `string` | Unique record identifier |
+| `jahr` | `int` | Year of birth |
+| `vorname` | `string` | First name |
 
 #### Example: List
 

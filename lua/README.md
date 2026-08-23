@@ -232,10 +232,10 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `description` |  |
-| `label` |  |
-| `name` |  |
-| `type` |  |
+| `description` | Field description |
+| `label` | Field label |
+| `name` | Field name |
+| `type` | Field data type |
 
 Operations: List.
 
@@ -245,12 +245,12 @@ API path: `/explore/v2.1/catalog/datasets/vornamen-der-neugeborenen-kanton-stgal
 
 | Field | Description |
 | --- | --- |
-| `anzahl` |  |
-| `geschlecht` |  |
-| `geschlecht_label` |  |
-| `id` |  |
-| `jahr` |  |
-| `vorname` |  |
+| `anzahl` | Number of occurrences |
+| `geschlecht` | Gender code |
+| `geschlecht_label` | Gender label (male/female) |
+| `id` | Unique record identifier |
+| `jahr` | Year of birth |
+| `vorname` | First name |
 
 Operations: List.
 
@@ -275,10 +275,10 @@ Create an instance: `local metadata = client:Metadata(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | `string` |  |
-| `label` | `string` |  |
-| `name` | `string` |  |
-| `type` | `string` |  |
+| `description` | `string` | Field description |
+| `label` | `string` | Field label |
+| `name` | `string` | Field name |
+| `type` | `string` | Field data type |
 
 #### Example: List
 
@@ -301,12 +301,12 @@ Create an instance: `local record = client:Record(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `anzahl` | `number` |  |
-| `geschlecht` | `string` |  |
-| `geschlecht_label` | `string` |  |
-| `id` | `string` |  |
-| `jahr` | `number` |  |
-| `vorname` | `string` |  |
+| `anzahl` | `number` | Number of occurrences |
+| `geschlecht` | `string` | Gender code |
+| `geschlecht_label` | `string` | Gender label (male/female) |
+| `id` | `string` | Unique record identifier |
+| `jahr` | `number` | Year of birth |
+| `vorname` | `string` | First name |
 
 #### Example: List
 

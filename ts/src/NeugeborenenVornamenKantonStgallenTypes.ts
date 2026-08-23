@@ -19,7 +19,7 @@ export interface MetadataListMatch {
   type?: string
 }
 
-export interface Record {
+export interface RecordType {
   anzahl?: number
   geschlecht?: string
   geschlecht_label?: string

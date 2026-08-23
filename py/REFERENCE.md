@@ -91,10 +91,10 @@ metadata = client.Metadata()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `str` | No |  |
-| `label` | `str` | No |  |
-| `name` | `str` | No |  |
-| `type` | `str` | No |  |
+| `description` | `str` | No | Field description |
+| `label` | `str` | No | Field label |
+| `name` | `str` | No | Field name |
+| `type` | `str` | No | Field data type |
 
 ### Operations
 
@@ -147,12 +147,12 @@ record = client.Record()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `anzahl` | `int` | No |  |
-| `geschlecht` | `str` | No |  |
-| `geschlecht_label` | `str` | No |  |
-| `id` | `str` | No |  |
-| `jahr` | `int` | No |  |
-| `vorname` | `str` | No |  |
+| `anzahl` | `int` | No | Number of occurrences |
+| `geschlecht` | `str` | No | Gender code |
+| `geschlecht_label` | `str` | No | Gender label (male/female) |
+| `id` | `str` | No | Unique record identifier |
+| `jahr` | `int` | No | Year of birth |
+| `vorname` | `str` | No | First name |
 
 ### Operations
 

@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "NeugeborenenVornamenKantonStgallen",
+			"slug": "neugeborenen-vornamen-kanton-stgallen",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -34,18 +37,22 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "description",
+						"short": "Field description",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "label",
+						"short": "Field label",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "name",
+						"short": "Field name",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "type",
+						"short": "Field data type",
 						"type": "`$STRING`",
 					},
 				},
@@ -84,26 +91,32 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "anzahl",
+						"short": "Number of occurrences",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "geschlecht",
+						"short": "Gender code",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "geschlecht_label",
+						"short": "Gender label (male/female)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Unique record identifier",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "jahr",
+						"short": "Year of birth",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "vorname",
+						"short": "First name",
 						"type": "`$STRING`",
 					},
 				},

@@ -15,12 +15,12 @@ import type {
 } from '../types'
 
 import type {
-  Record,
+  RecordType,
   RecordListMatch,
 } from '../NeugeborenenVornamenKantonStgallenTypes'
 
 // TODO: needs Entity superclass
-class RecordEntity extends NeugeborenenVornamenKantonStgallenEntityBase<Record> {
+class RecordEntity extends NeugeborenenVornamenKantonStgallenEntityBase<RecordType> {
 
   constructor(client: NeugeborenenVornamenKantonStgallenSDK, entopts: any) {
     super(client, entopts)

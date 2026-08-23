@@ -238,10 +238,10 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `description` |  |
-| `label` |  |
-| `name` |  |
-| `type` |  |
+| `description` | Field description |
+| `label` | Field label |
+| `name` | Field name |
+| `type` | Field data type |
 
 Operations: List.
 
@@ -251,12 +251,12 @@ API path: `/explore/v2.1/catalog/datasets/vornamen-der-neugeborenen-kanton-stgal
 
 | Field | Description |
 | --- | --- |
-| `anzahl` |  |
-| `geschlecht` |  |
-| `geschlecht_label` |  |
-| `id` |  |
-| `jahr` |  |
-| `vorname` |  |
+| `anzahl` | Number of occurrences |
+| `geschlecht` | Gender code |
+| `geschlecht_label` | Gender label (male/female) |
+| `id` | Unique record identifier |
+| `jahr` | Year of birth |
+| `vorname` | First name |
 
 Operations: List.
 
@@ -281,10 +281,10 @@ Create an instance: `metadata = client.Metadata`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | `String` |  |
-| `label` | `String` |  |
-| `name` | `String` |  |
-| `type` | `String` |  |
+| `description` | `String` | Field description |
+| `label` | `String` | Field label |
+| `name` | `String` | Field name |
+| `type` | `String` | Field data type |
 
 #### Example: List
 
@@ -308,12 +308,12 @@ Create an instance: `record = client.Record`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `anzahl` | `Integer` |  |
-| `geschlecht` | `String` |  |
-| `geschlecht_label` | `String` |  |
-| `id` | `String` |  |
-| `jahr` | `Integer` |  |
-| `vorname` | `String` |  |
+| `anzahl` | `Integer` | Number of occurrences |
+| `geschlecht` | `String` | Gender code |
+| `geschlecht_label` | `String` | Gender label (male/female) |
+| `id` | `String` | Unique record identifier |
+| `jahr` | `Integer` | Year of birth |
+| `vorname` | `String` | First name |
 
 #### Example: List
 

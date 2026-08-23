@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -288,10 +288,10 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `description` |  |
-| `label` |  |
-| `name` |  |
-| `type` |  |
+| `description` | Field description |
+| `label` | Field label |
+| `name` | Field name |
+| `type` | Field data type |
 
 Operations: list.
 
@@ -301,12 +301,12 @@ API path: `/explore/v2.1/catalog/datasets/vornamen-der-neugeborenen-kanton-stgal
 
 | Field | Description |
 | --- | --- |
-| `anzahl` |  |
-| `geschlecht` |  |
-| `geschlecht_label` |  |
-| `id` |  |
-| `jahr` |  |
-| `vorname` |  |
+| `anzahl` | Number of occurrences |
+| `geschlecht` | Gender code |
+| `geschlecht_label` | Gender label (male/female) |
+| `id` | Unique record identifier |
+| `jahr` | Year of birth |
+| `vorname` | First name |
 
 Operations: list.
 
@@ -331,10 +331,10 @@ Create an instance: `const metadata = client.Metadata()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | `string` |  |
-| `label` | `string` |  |
-| `name` | `string` |  |
-| `type` | `string` |  |
+| `description` | `string` | Field description |
+| `label` | `string` | Field label |
+| `name` | `string` | Field name |
+| `type` | `string` | Field data type |
 
 #### Example: List
 
@@ -357,12 +357,12 @@ Create an instance: `const record = client.Record()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `anzahl` | `number` |  |
-| `geschlecht` | `string` |  |
-| `geschlecht_label` | `string` |  |
-| `id` | `string` |  |
-| `jahr` | `number` |  |
-| `vorname` | `string` |  |
+| `anzahl` | `number` | Number of occurrences |
+| `geschlecht` | `string` | Gender code |
+| `geschlecht_label` | `string` | Gender label (male/female) |
+| `id` | `string` | Unique record identifier |
+| `jahr` | `number` | Year of birth |
+| `vorname` | `string` | First name |
 
 #### Example: List
 

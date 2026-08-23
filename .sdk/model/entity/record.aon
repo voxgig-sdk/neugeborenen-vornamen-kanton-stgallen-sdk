@@ -8,31 +8,37 @@ main: kit: entity: record: {
     {
       name: "anzahl"
       req: false
+      short: "Number of occurrences"
       type: "`$INTEGER`"
     }
     {
       name: "geschlecht"
       req: false
+      short: "Gender code"
       type: "`$STRING`"
     }
     {
       name: "geschlecht_label"
       req: false
+      short: "Gender label (male/female)"
       type: "`$STRING`"
     }
     {
       name: "id"
       req: false
+      short: "Unique record identifier"
       type: "`$STRING`"
     }
     {
       name: "jahr"
       req: false
+      short: "Year of birth"
       type: "`$INTEGER`"
     }
     {
       name: "vorname"
       req: false
+      short: "First name"
       type: "`$STRING`"
     }
   ]

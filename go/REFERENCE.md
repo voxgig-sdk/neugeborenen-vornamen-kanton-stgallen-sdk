@@ -102,10 +102,10 @@ fmt.Println(metadata.GetName()) // "metadata"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `string` | No |  |
-| `label` | `string` | No |  |
-| `name` | `string` | No |  |
-| `type` | `string` | No |  |
+| `description` | `string` | No | Field description |
+| `label` | `string` | No | Field label |
+| `name` | `string` | No | Field name |
+| `type` | `string` | No | Field data type |
 
 ### Operations
 
@@ -156,12 +156,12 @@ fmt.Println(record.GetName()) // "record"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `anzahl` | `int` | No |  |
-| `geschlecht` | `string` | No |  |
-| `geschlecht_label` | `string` | No |  |
-| `id` | `string` | No |  |
-| `jahr` | `int` | No |  |
-| `vorname` | `string` | No |  |
+| `anzahl` | `int` | No | Number of occurrences |
+| `geschlecht` | `string` | No | Gender code |
+| `geschlecht_label` | `string` | No | Gender label (male/female) |
+| `id` | `string` | No | Unique record identifier |
+| `jahr` | `int` | No | Year of birth |
+| `vorname` | `string` | No | First name |
 
 ### Operations
 

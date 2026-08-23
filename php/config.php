@@ -33,6 +33,9 @@ class NeugeborenenVornamenKantonStgallenConfig
         return [
             "main" => [
                 "name" => "NeugeborenenVornamenKantonStgallen",
+                "slug" => "neugeborenen-vornamen-kanton-stgallen",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [
@@ -56,18 +59,22 @@ class NeugeborenenVornamenKantonStgallenConfig
           'fields' => [
             [
               'name' => 'description',
+              'short' => 'Field description',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'label',
+              'short' => 'Field label',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'name',
+              'short' => 'Field name',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'type',
+              'short' => 'Field data type',
               'type' => '`$STRING`',
             ],
           ],
@@ -106,26 +113,32 @@ class NeugeborenenVornamenKantonStgallenConfig
           'fields' => [
             [
               'name' => 'anzahl',
+              'short' => 'Number of occurrences',
               'type' => '`$INTEGER`',
             ],
             [
               'name' => 'geschlecht',
+              'short' => 'Gender code',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'geschlecht_label',
+              'short' => 'Gender label (male/female)',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'id',
+              'short' => 'Unique record identifier',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'jahr',
+              'short' => 'Year of birth',
               'type' => '`$INTEGER`',
             ],
             [
               'name' => 'vorname',
+              'short' => 'First name',
               'type' => '`$STRING`',
             ],
           ],
