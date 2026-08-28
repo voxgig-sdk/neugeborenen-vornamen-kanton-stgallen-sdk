@@ -27,12 +27,16 @@
 ---@field vorname? string
 
 ---@class RecordListMatch
----@field anzahl? number
----@field geschlecht? string
----@field geschlecht_label? string
----@field id? string
----@field jahr? number
----@field vorname? string
+---@field group_by? string
+---@field limit? number
+---@field offset? number
+---@field order_by? string
+---@field refine_geschlecht? string
+---@field refine_jahr? number
+---@field refine_vorname? string
+---@field select? string
+---@field timezone? string
+---@field where? string
 
 local M = {}
 

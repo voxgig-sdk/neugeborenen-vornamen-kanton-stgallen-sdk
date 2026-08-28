@@ -29,11 +29,15 @@ export interface RecordType {
 }
 
 export interface RecordListMatch {
-  anzahl?: number
-  geschlecht?: string
-  geschlecht_label?: string
-  id?: string
-  jahr?: number
-  vorname?: string
+  group_by?: string
+  limit?: number
+  offset?: number
+  order_by?: string
+  refine_geschlecht?: string
+  refine_jahr?: number
+  refine_vorname?: string
+  select?: string
+  timezone?: string
+  where?: string
 }
 

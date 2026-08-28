@@ -44,11 +44,15 @@ class Record
 /** Request payload for Record#list. */
 class RecordListMatch
 {
-    public ?int $anzahl = null;
-    public ?string $geschlecht = null;
-    public ?string $geschlecht_label = null;
-    public ?string $id = null;
-    public ?int $jahr = null;
-    public ?string $vorname = null;
+    public ?string $group_by = null;
+    public ?int $limit = null;
+    public ?int $offset = null;
+    public ?string $order_by = null;
+    public ?string $refine_geschlecht = null;
+    public ?int $refine_jahr = null;
+    public ?string $refine_vorname = null;
+    public ?string $select = null;
+    public ?string $timezone = null;
+    public ?string $where = null;
 }
 

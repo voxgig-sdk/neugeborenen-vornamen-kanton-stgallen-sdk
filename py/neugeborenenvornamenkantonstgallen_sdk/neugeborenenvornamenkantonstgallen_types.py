@@ -40,9 +40,13 @@ class Record(TypedDict, total=False):
 
 
 class RecordListMatch(TypedDict, total=False):
-    anzahl: int
-    geschlecht: str
-    geschlecht_label: str
-    id: str
-    jahr: int
-    vorname: str
+    group_by: str
+    limit: int
+    offset: int
+    order_by: str
+    refine_geschlecht: str
+    refine_jahr: int
+    refine_vorname: str
+    select: str
+    timezone: str
+    where: str

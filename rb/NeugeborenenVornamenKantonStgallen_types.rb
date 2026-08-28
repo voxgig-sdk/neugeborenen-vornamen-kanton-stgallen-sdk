@@ -81,30 +81,46 @@ Record = Struct.new(
 
 # Request payload for Record#list.
 #
-# @!attribute [rw] anzahl
+# @!attribute [rw] group_by
+#   @return [String, nil]
+#
+# @!attribute [rw] limit
 #   @return [Integer, nil]
 #
-# @!attribute [rw] geschlecht
-#   @return [String, nil]
-#
-# @!attribute [rw] geschlecht_label
-#   @return [String, nil]
-#
-# @!attribute [rw] id
-#   @return [String, nil]
-#
-# @!attribute [rw] jahr
+# @!attribute [rw] offset
 #   @return [Integer, nil]
 #
-# @!attribute [rw] vorname
+# @!attribute [rw] order_by
+#   @return [String, nil]
+#
+# @!attribute [rw] refine_geschlecht
+#   @return [String, nil]
+#
+# @!attribute [rw] refine_jahr
+#   @return [Integer, nil]
+#
+# @!attribute [rw] refine_vorname
+#   @return [String, nil]
+#
+# @!attribute [rw] select
+#   @return [String, nil]
+#
+# @!attribute [rw] timezone
+#   @return [String, nil]
+#
+# @!attribute [rw] where
 #   @return [String, nil]
 RecordListMatch = Struct.new(
-  :anzahl,
-  :geschlecht,
-  :geschlecht_label,
-  :id,
-  :jahr,
-  :vorname,
+  :group_by,
+  :limit,
+  :offset,
+  :order_by,
+  :refine_geschlecht,
+  :refine_jahr,
+  :refine_vorname,
+  :select,
+  :timezone,
+  :where,
   keyword_init: true
 )
 

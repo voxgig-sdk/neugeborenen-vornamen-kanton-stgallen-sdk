@@ -40,12 +40,16 @@ type Record struct {
 
 // RecordListMatch is the typed request payload for Record.ListTyped.
 type RecordListMatch struct {
-	Anzahl *int `json:"anzahl,omitempty"`
-	Geschlecht *string `json:"geschlecht,omitempty"`
-	GeschlechtLabel *string `json:"geschlecht_label,omitempty"`
-	Id *string `json:"id,omitempty"`
-	Jahr *int `json:"jahr,omitempty"`
-	Vorname *string `json:"vorname,omitempty"`
+	GroupBy *string `json:"group_by,omitempty"`
+	Limit *int `json:"limit,omitempty"`
+	Offset *int `json:"offset,omitempty"`
+	OrderBy *string `json:"order_by,omitempty"`
+	RefineGeschlecht *string `json:"refine_geschlecht,omitempty"`
+	RefineJahr *int `json:"refine_jahr,omitempty"`
+	RefineVorname *string `json:"refine_vorname,omitempty"`
+	Select *string `json:"select,omitempty"`
+	Timezone *string `json:"timezone,omitempty"`
+	Where *string `json:"where,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the
