@@ -64,17 +64,34 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/explore/v2.1/catalog/datasets/vornamen-der-neugeborenen-kanton-stgallen-seit-1987",
+                ["segments"] = {
+                  {
+                    ["lit"] = "explore",
+                  },
+                  {
+                    ["lit"] = "v2.1",
+                  },
+                  {
+                    ["lit"] = "catalog",
+                  },
+                  {
+                    ["lit"] = "datasets",
+                  },
+                  {
+                    ["lit"] = "vornamen-der-neugeborenen-kanton-stgallen-seit-1987",
+                  },
+                },
+                ["select"] = {},
+                ["transform"] = {
+                  ["req"] = "`reqdata`",
+                  ["res"] = "`body`",
+                },
                 ["parts"] = {
                   "explore",
                   "v2.1",
                   "catalog",
                   "datasets",
                   "vornamen-der-neugeborenen-kanton-stgallen-seit-1987",
-                },
-                ["select"] = {},
-                ["transform"] = {
-                  ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
                 },
               },
             },
@@ -116,6 +133,10 @@ local function make_config()
             ["short"] = "First name",
             ["type"] = "`$STRING`",
           },
+        },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
         },
         ["name"] = "record",
         ["op"] = {
@@ -197,13 +218,25 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/explore/v2.1/catalog/datasets/vornamen-der-neugeborenen-kanton-stgallen-seit-1987/records",
-                ["parts"] = {
-                  "explore",
-                  "v2.1",
-                  "catalog",
-                  "datasets",
-                  "vornamen-der-neugeborenen-kanton-stgallen-seit-1987",
-                  "records",
+                ["segments"] = {
+                  {
+                    ["lit"] = "explore",
+                  },
+                  {
+                    ["lit"] = "v2.1",
+                  },
+                  {
+                    ["lit"] = "catalog",
+                  },
+                  {
+                    ["lit"] = "datasets",
+                  },
+                  {
+                    ["lit"] = "vornamen-der-neugeborenen-kanton-stgallen-seit-1987",
+                  },
+                  {
+                    ["lit"] = "records",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -222,6 +255,14 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.results`",
+                },
+                ["parts"] = {
+                  "explore",
+                  "v2.1",
+                  "catalog",
+                  "datasets",
+                  "vornamen-der-neugeborenen-kanton-stgallen-seit-1987",
+                  "records",
                 },
               },
             },

@@ -76,6 +76,28 @@ module NeugeborenenVornamenKantonStgallenConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/explore/v2.1/catalog/datasets/vornamen-der-neugeborenen-kanton-stgallen-seit-1987",
+                  "segments" => [
+                    {
+                      "lit" => "explore",
+                    },
+                    {
+                      "lit" => "v2.1",
+                    },
+                    {
+                      "lit" => "catalog",
+                    },
+                    {
+                      "lit" => "datasets",
+                    },
+                    {
+                      "lit" => "vornamen-der-neugeborenen-kanton-stgallen-seit-1987",
+                    },
+                  ],
+                  "select" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body`",
+                  },
                   "parts" => [
                     "explore",
                     "v2.1",
@@ -83,11 +105,6 @@ module NeugeborenenVornamenKantonStgallenConfig
                     "datasets",
                     "vornamen-der-neugeborenen-kanton-stgallen-seit-1987",
                   ],
-                  "select" => {},
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body`",
-                  },
                 },
               ],
             },
@@ -129,6 +146,10 @@ module NeugeborenenVornamenKantonStgallenConfig
               "type" => "`$STRING`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "record",
           "op" => {
             "list" => {
@@ -209,13 +230,25 @@ module NeugeborenenVornamenKantonStgallenConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/explore/v2.1/catalog/datasets/vornamen-der-neugeborenen-kanton-stgallen-seit-1987/records",
-                  "parts" => [
-                    "explore",
-                    "v2.1",
-                    "catalog",
-                    "datasets",
-                    "vornamen-der-neugeborenen-kanton-stgallen-seit-1987",
-                    "records",
+                  "segments" => [
+                    {
+                      "lit" => "explore",
+                    },
+                    {
+                      "lit" => "v2.1",
+                    },
+                    {
+                      "lit" => "catalog",
+                    },
+                    {
+                      "lit" => "datasets",
+                    },
+                    {
+                      "lit" => "vornamen-der-neugeborenen-kanton-stgallen-seit-1987",
+                    },
+                    {
+                      "lit" => "records",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -235,6 +268,14 @@ module NeugeborenenVornamenKantonStgallenConfig
                     "req" => "`reqdata`",
                     "res" => "`body.results`",
                   },
+                  "parts" => [
+                    "explore",
+                    "v2.1",
+                    "catalog",
+                    "datasets",
+                    "vornamen-der-neugeborenen-kanton-stgallen-seit-1987",
+                    "records",
+                  ],
                 },
               ],
             },

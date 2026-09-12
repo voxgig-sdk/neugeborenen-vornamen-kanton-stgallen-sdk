@@ -136,13 +136,25 @@ main: kit: entity: record: {
           }
           method: "GET"
           orig: "/explore/v2.1/catalog/datasets/vornamen-der-neugeborenen-kanton-stgallen-seit-1987/records"
-          parts: [
-            "explore"
-            "v2.1"
-            "catalog"
-            "datasets"
-            "vornamen-der-neugeborenen-kanton-stgallen-seit-1987"
-            "records"
+          segments: [
+            {
+              lit: "explore"
+            }
+            {
+              lit: "v2.1"
+            }
+            {
+              lit: "catalog"
+            }
+            {
+              lit: "datasets"
+            }
+            {
+              lit: "vornamen-der-neugeborenen-kanton-stgallen-seit-1987"
+            }
+            {
+              lit: "records"
+            }
           ]
           select: {
             exist: [
