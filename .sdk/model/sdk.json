@@ -1039,7 +1039,7 @@
             "registry": {
               "active": false,
               "name": "npm",
-              "package": "",
+              "package": "@voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk",
               "state": "pending",
               "url": "https://registry.npmjs.org",
               "vault": {

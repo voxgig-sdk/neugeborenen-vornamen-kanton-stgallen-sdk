@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { NeugeborenenVornamenKantonStgallenSDK } from '@voxgig-sdk/neugeborenen-vornamen-kanton-stgallen'
+import { NeugeborenenVornamenKantonStgallenSDK } from '@voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk'
 
 const client = new NeugeborenenVornamenKantonStgallenSDK()
 ```
@@ -453,7 +453,7 @@ neugeborenen-vornamen-kanton-stgallen/
 Import the SDK from the package root:
 
 ```ts
-import { NeugeborenenVornamenKantonStgallenSDK } from '@voxgig-sdk/neugeborenen-vornamen-kanton-stgallen'
+import { NeugeborenenVornamenKantonStgallenSDK } from '@voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk'
 ```
 
 ### Entity state

@@ -105,7 +105,7 @@ local results, err = client:Metadata():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/neugeborenen-vornamen-kanton-stgallen` | publish pending — [install from git tag](https://github.com/voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk/releases) |
+| TypeScript | `@voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk/releases) |
 | Python | `voxgig-sdk-neugeborenen-vornamen-kanton-stgallen` | publish pending — [install from git tag](https://github.com/voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk/releases) |
 | PHP | `voxgig-sdk/neugeborenen-vornamen-kanton-stgallen` | publish pending — [install from git tag](https://github.com/voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk/go` | `go get github.com/voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:Metadata():list()
 ### TypeScript
 
 ```ts
-import { NeugeborenenVornamenKantonStgallenSDK } from '@voxgig-sdk/neugeborenen-vornamen-kanton-stgallen'
+import { NeugeborenenVornamenKantonStgallenSDK } from '@voxgig-sdk/neugeborenen-vornamen-kanton-stgallen-sdk'
 
 const client = new NeugeborenenVornamenKantonStgallenSDK()
 
