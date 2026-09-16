@@ -2,27 +2,27 @@
   "existing": {
     "record": {
       "RECORD00": {
-        "anzahl": "s3c",
+        "anzahl": 60,
         "geschlecht": "s3d",
         "geschlecht_label": "s3e",
         "id": "RECORD00",
-        "jahr": "s40",
+        "jahr": 64,
         "vorname": "s41"
       },
       "RECORD01": {
-        "anzahl": "s78",
+        "anzahl": 120,
         "geschlecht": "s79",
         "geschlecht_label": "s7a",
         "id": "RECORD01",
-        "jahr": "s7c",
+        "jahr": 124,
         "vorname": "s7d"
       },
       "RECORD02": {
-        "anzahl": "sb4",
+        "anzahl": 180,
         "geschlecht": "sb5",
         "geschlecht_label": "sb6",
         "id": "RECORD02",
-        "jahr": "sb8",
+        "jahr": 184,
         "vorname": "sb9"
       }
     }
@@ -30,11 +30,190 @@
   "new": {
     "record": {
       "record_ref01": {
-        "anzahl": "sf0",
+        "anzahl": 240,
         "geschlecht": "sf1",
         "geschlecht_label": "sf2",
-        "jahr": "sf4",
+        "jahr": 244,
         "vorname": "sf5"
+      }
+    }
+  },
+  "requests": {
+    "GET /explore/v2.1/catalog/datasets/vornamen-der-neugeborenen-kanton-stgallen-seit-1987/records": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getRecords",
+        "parameters": [
+          {
+            "description": "Fields to include in the response (comma-separated)",
+            "example": "vorname,geschlecht,jahr,anzahl",
+            "in": "query",
+            "name": "select",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Filter query using ODSQL syntax",
+            "example": "jahr >= 2000",
+            "in": "query",
+            "name": "where",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Maximum number of records to return",
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "default": 10,
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Number of records to skip for pagination",
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "schema": {
+              "default": 0,
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Filter by gender",
+            "in": "query",
+            "name": "refine.geschlecht",
+            "required": false,
+            "schema": {
+              "enum": [
+                "m",
+                "w"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "Filter by first name",
+            "in": "query",
+            "name": "refine.vorname",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Filter by year",
+            "in": "query",
+            "name": "refine.jahr",
+            "required": false,
+            "schema": {
+              "minimum": 1987,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Field to sort by (prefix with - for descending order)",
+            "example": "-anzahl",
+            "in": "query",
+            "name": "order_by",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Fields to group by (comma-separated)",
+            "in": "query",
+            "name": "group_by",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Timezone for date/time fields",
+            "in": "query",
+            "name": "timezone",
+            "required": false,
+            "schema": {
+              "default": "UTC",
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "results": {
+                      "items": {
+                        "properties": {
+                          "anzahl": {
+                            "description": "Number of occurrences",
+                            "type": "integer"
+                          },
+                          "geschlecht": {
+                            "description": "Gender code",
+                            "enum": [
+                              "m",
+                              "w"
+                            ],
+                            "type": "string"
+                          },
+                          "geschlecht_label": {
+                            "description": "Gender label (male/female)",
+                            "type": "string"
+                          },
+                          "id": {
+                            "description": "Unique record identifier",
+                            "type": "string"
+                          },
+                          "jahr": {
+                            "description": "Year of birth",
+                            "type": "integer"
+                          },
+                          "vorname": {
+                            "description": "First name",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "total_count": {
+                      "description": "Total number of records matching the query",
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response"
+          },
+          "400": {
+            "description": "Bad request - invalid parameters"
+          },
+          "404": {
+            "description": "Dataset not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "securitySource": "unspecified"
       }
     }
   }

@@ -37,6 +37,12 @@ main: kit: entity: metadata: {
       name: "list"
       points: [
         {
+          contract: {
+            id: "GET /explore/v2.1/catalog/datasets/vornamen-der-neugeborenen-kanton-stgallen-seit-1987"
+            json: "{\"operationId\":\"getDatasetMetadata\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"attachments\":{\"description\":\"Dataset attachments and related files\",\"type\":\"array\"},\"dataset_id\":{\"description\":\"Dataset identifier\",\"type\":\"string\"},\"dataset_uid\":{\"description\":\"Unique dataset identifier\",\"type\":\"string\"},\"extra_metas\":{\"properties\":{\"explore\":{\"properties\":{\"download_count\":{\"description\":\"Number of dataset downloads\",\"type\":\"integer\"}},\"type\":\"object\"}},\"type\":\"object\"},\"fields\":{\"items\":{\"properties\":{\"description\":{\"description\":\"Field description\",\"type\":\"string\"},\"label\":{\"description\":\"Field label\",\"type\":\"string\"},\"name\":{\"description\":\"Field name\",\"type\":\"string\"},\"type\":{\"description\":\"Field data type\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"metas\":{\"properties\":{\"data_processed\":{\"description\":\"Timestamp of last data processing\",\"format\":\"date-time\",\"type\":\"string\"},\"description\":{\"description\":\"Dataset description\",\"type\":\"string\"},\"keyword\":{\"description\":\"Dataset keywords\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"metadata_processed\":{\"description\":\"Timestamp of last metadata processing\",\"format\":\"date-time\",\"type\":\"string\"},\"theme\":{\"description\":\"Dataset themes\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"title\":{\"description\":\"Dataset title\",\"type\":\"string\"}},\"type\":\"object\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"},\"404\":{\"description\":\"Dataset not found\"},\"500\":{\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/explore/v2.1/catalog/datasets/vornamen-der-neugeborenen-kanton-stgallen-seit-1987"
           segments: [
