@@ -127,12 +127,12 @@ class Config {
 
     entity: {
       
-      metadata: {
-      },
-
-      record: {
-      },
-
+        metadata: {
+        },
+  
+        record: {
+        },
+  
     }
   }
 

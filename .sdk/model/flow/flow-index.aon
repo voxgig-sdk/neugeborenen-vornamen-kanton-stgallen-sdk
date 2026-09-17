@@ -1,4 +1,4 @@
 # Flows
 
-@"BasicMetadataFlow.aon"
-@"BasicRecordFlow.aon"
+@"./BasicMetadataFlow.aon"
+@"./BasicRecordFlow.aon"

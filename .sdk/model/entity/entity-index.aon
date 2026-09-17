@@ -1,4 +1,4 @@
 # Entity Models
 
-@"metadata.aon"
-@"record.aon"
+@"./metadata.aon"
+@"./record.aon"
