@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MetadataEntity = void 0;
 const NeugeborenenVornamenKantonStgallenEntityBase_1 = require("../NeugeborenenVornamenKantonStgallenEntityBase");
-// TODO: needs Entity superclass
 class MetadataEntity extends NeugeborenenVornamenKantonStgallenEntityBase_1.NeugeborenenVornamenKantonStgallenEntityBase {
     constructor(client, entopts) {
         super(client, entopts);

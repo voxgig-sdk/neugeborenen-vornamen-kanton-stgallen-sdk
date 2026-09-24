@@ -19,7 +19,6 @@ import type {
   RecordListMatch,
 } from '../NeugeborenenVornamenKantonStgallenTypes'
 
-// TODO: needs Entity superclass
 class RecordEntity extends NeugeborenenVornamenKantonStgallenEntityBase<RecordType> {
 
   constructor(client: NeugeborenenVornamenKantonStgallenSDK, entopts: any) {

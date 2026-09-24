@@ -19,7 +19,6 @@ import type {
   MetadataListMatch,
 } from '../NeugeborenenVornamenKantonStgallenTypes'
 
-// TODO: needs Entity superclass
 class MetadataEntity extends NeugeborenenVornamenKantonStgallenEntityBase<Metadata> {
 
   constructor(client: NeugeborenenVornamenKantonStgallenSDK, entopts: any) {

@@ -1,0 +1,195 @@
+# Entity: record
+
+main: kit: entity: record: {
+
+  alias: field: {}
+
+  fields: {
+    anzahl: {
+      h: "Anzahl"
+      n: "anzahl"
+      r: false
+      sh: "Number of occurrences"
+      t: "`$INTEGER`"
+    }
+    geschlecht: {
+      h: "Geschlecht"
+      n: "geschlecht"
+      r: false
+      sh: "Gender code"
+      t: "`$STRING`"
+    }
+    geschlecht_label: {
+      h: "Geschlecht Label"
+      n: "geschlecht_label"
+      r: false
+      sh: "Gender label (male/female)"
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      sh: "Unique record identifier"
+      t: "`$STRING`"
+    }
+    jahr: {
+      h: "Jahr"
+      n: "jahr"
+      r: false
+      sh: "Year of birth"
+      t: "`$INTEGER`"
+    }
+    vorname: {
+      h: "Vorname"
+      n: "vorname"
+      r: false
+      sh: "First name"
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "record"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /explore/v2.1/catalog/datasets/vornamen-der-neugeborenen-kanton-stgallen-seit-1987/records"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "group_by"
+                or: "group_by"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 10
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 0
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: "-anzahl"
+                k: "query"
+                n: "order_by"
+                or: "order_by"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "refine_geschlecht"
+                or: "refine_geschlecht"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "refine_jahr"
+                or: "refine_jahr"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "refine_vorname"
+                or: "refine_vorname"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "vorname,geschlecht,jahr,anzahl"
+                k: "query"
+                n: "select"
+                or: "select"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "UTC"
+                k: "query"
+                n: "timezone"
+                or: "timezone"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "jahr >= 2000"
+                k: "query"
+                n: "where"
+                or: "where"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/explore/v2.1/catalog/datasets/vornamen-der-neugeborenen-kanton-stgallen-seit-1987/records"
+          q: {
+            exist: [
+              "group_by"
+              "limit"
+              "offset"
+              "order_by"
+              "refine_geschlecht"
+              "refine_jahr"
+              "refine_vorname"
+              "select"
+              "timezone"
+              "where"
+            ]
+          }
+          s: [
+            {
+              lit: "explore"
+            }
+            {
+              lit: "v2.1"
+            }
+            {
+              lit: "catalog"
+            }
+            {
+              lit: "datasets"
+            }
+            {
+              lit: "vornamen-der-neugeborenen-kanton-stgallen-seit-1987"
+            }
+            {
+              lit: "records"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.results`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

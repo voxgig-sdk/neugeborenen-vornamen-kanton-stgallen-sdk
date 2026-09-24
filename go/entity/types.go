@@ -1,7 +1,7 @@
 // Typed models for the NeugeborenenVornamenKantonStgallen SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,10 +14,6 @@ import (
 
 // Metadata is the typed data model for the metadata entity.
 type Metadata struct {
-	Description *string `json:"description,omitempty"`
-	Label *string `json:"label,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Type *string `json:"type,omitempty"`
 }
 
 // MetadataListMatch is the typed request payload for Metadata.ListTyped.
@@ -30,12 +26,6 @@ type MetadataListMatch struct {
 
 // Record is the typed data model for the record entity.
 type Record struct {
-	Anzahl *int `json:"anzahl,omitempty"`
-	Geschlecht *string `json:"geschlecht,omitempty"`
-	GeschlechtLabel *string `json:"geschlecht_label,omitempty"`
-	Id *string `json:"id,omitempty"`
-	Jahr *int `json:"jahr,omitempty"`
-	Vorname *string `json:"vorname,omitempty"`
 }
 
 // RecordListMatch is the typed request payload for Record.ListTyped.

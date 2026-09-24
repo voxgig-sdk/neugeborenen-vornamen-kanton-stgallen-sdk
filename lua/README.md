@@ -43,7 +43,7 @@ local metadatas, err = client:Metadata():list()
 if err then error(err) end
 
 for _, item in ipairs(metadatas) do
-  print(item["description"])
+  print(item)
 end
 ```
 

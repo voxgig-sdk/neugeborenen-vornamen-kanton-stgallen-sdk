@@ -1,0 +1,79 @@
+# Entity: metadata
+
+main: kit: entity: metadata: {
+
+  alias: field: {}
+
+  fields: {
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      sh: "Field description"
+      t: "`$STRING`"
+    }
+    label: {
+      h: "Label"
+      n: "label"
+      r: false
+      sh: "Field label"
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      sh: "Field name"
+      t: "`$STRING`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: false
+      sh: "Field data type"
+      t: "`$STRING`"
+    }
+  }
+
+  name: "metadata"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /explore/v2.1/catalog/datasets/vornamen-der-neugeborenen-kanton-stgallen-seit-1987"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/explore/v2.1/catalog/datasets/vornamen-der-neugeborenen-kanton-stgallen-seit-1987"
+          s: [
+            {
+              lit: "explore"
+            }
+            {
+              lit: "v2.1"
+            }
+            {
+              lit: "catalog"
+            }
+            {
+              lit: "datasets"
+            }
+            {
+              lit: "vornamen-der-neugeborenen-kanton-stgallen-seit-1987"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}
